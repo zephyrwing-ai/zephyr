@@ -26,9 +26,8 @@ jobs:
       - run: npm ci
       - name: Build
         env:
-          SITE_URL: https://zephyrwing-ai.github.io
+          SITE_URL: https://zephyrwing-ai.github.io/zephyr
         run: npm exec astro -- build
-      - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

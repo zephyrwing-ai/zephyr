@@ -1,4 +1,5 @@
 import type { APIRoute } from "astro";
+import { url } from "@/lib/paths";
 import { sections, site as siteConfig } from "@/config/site";
 import { getPublishedEntries, getEntryHref } from "@/lib/content";
 
@@ -13,7 +14,7 @@ function escapeXml(value: string) {
 export const GET: APIRoute = async ({ params, site }) => {
   if (!site) return new Response(null, { status: 404 });
   const entries = await getPublishedEntries();
-  const absolute = (path: string) => escapeXml(new URL(path, site).href);
+  const absolute = (path: string) => escapeXml(new URL(url(path), site).href);
   const content = params.feed === "sitemap"
     ? `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${["/", ...sections.map((section) => `/${section.id}/`)].map((path) => `<url><loc>${absolute(path)}</loc></url>`).join("")}${entries.map((entry) => `<url><loc>${absolute(getEntryHref(entry))}</loc><lastmod>${entry.data.updatedAt || entry.data.publishedAt}</lastmod></url>`).join("")}</urlset>`
     : `<rss version="2.0"><channel><title>${escapeXml(siteConfig.name)}</title><link>${absolute("/")}</link><description>${escapeXml(siteConfig.description)}</description><language>${siteConfig.language}</language>${entries.map((entry) => `<item><title>${escapeXml(entry.data.title)}</title><link>${absolute(getEntryHref(entry))}</link><guid>${absolute(getEntryHref(entry))}</guid><description>${escapeXml(entry.data.description)}</description><pubDate>${new Date(`${entry.data.publishedAt}T00:00:00+08:00`).toUTCString()}</pubDate></item>`).join("")}</channel></rss>`;
