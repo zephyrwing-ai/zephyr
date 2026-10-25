@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="600" viewBox="0 0 1000 600" fill="none">
+  <rect width="1000" height="600" fill="#F4F3EE"/>
+  <path d="M210 420 540 545l294-162-328-121z" fill="#E7E6DE"/>
+  <path d="M210 180 506 72l328 118v193L506 264 210 420z" fill="#FDFCF8"/>
+  <path d="m210 180 296-108v192L210 420z" fill="#E3E4DB"/>
+  <path d="m506 72 328 118v193L506 264z" fill="#EFEFE6"/>
+  <path d="m566 121 161 58v139l-161-58z" fill="#D7E1DE" stroke="#B9C6C0" stroke-width="3"/>
+  <path d="m647 151 0 139M566 192l161 58" stroke="#FDFCF8" stroke-width="5"/>
+  <path d="m566 260 161 58-277 145-181-55z" fill="#FCF8D9" opacity=".7"/>
+  <path d="m353 326 118-51 131 48-120 58z" fill="#C4C7B9" stroke="#8E9883"/>
+  <path d="M353 326v42l129 48v-35m120-58v43l-120 50" stroke="#8E9883" stroke-width="3"/>
+  <path d="M210 420V180L506 72l328 118v193L540 545 210 420zM506 72v192l328 119M210 420l296-156" stroke="#9EA693" stroke-width="2"/>
+  <g font-family="Arial, sans-serif" fill="#6E7765"><text x="60" y="72" font-size="13" letter-spacing="2">A STUDY OF LIGHT &amp; SCALE</text><text x="60" y="98" font-size="11" fill="#9AA18E">An illustrated room, a window, and the space between.</text><text x="782" y="528" font-size="10" letter-spacing="1.5">SPACE STUDY / 01</text></g>
+  <path d="M730 265h124v-63" stroke="#A5AE99" stroke-dasharray="4 4"/><text x="851" y="185" fill="#7E8B73" font-family="Arial, sans-serif" font-size="11" text-anchor="end">Daylight</text>
+</svg>

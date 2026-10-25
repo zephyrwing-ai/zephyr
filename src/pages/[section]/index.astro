@@ -1,0 +1,29 @@
+---
+import SiteLayout from "@/layouts/SiteLayout.astro";
+import EntryList from "@/components/EntryList.astro";
+import { sections } from "@/config/site";
+import { getPublishedEntries, getSectionGroups, getEntryHref } from "@/lib/content";
+export function getStaticPaths() {
+  return sections.map((section) => ({ params: { section: section.id }, props: { section } }));
+}
+interface Props { section: (typeof sections)[number] }
+const { section } = Astro.props;
+const entries = await getPublishedEntries();
+const sectionEntries = entries.filter((entry) => entry.data.section === section.id);
+const groups = getSectionGroups(section.id, sectionEntries);
+const headings = section.id === "life"
+  ? groups.map((group, index) => ({ depth: 2, slug: `group-${index}`, text: group.label }))
+  : [];
+---
+<SiteLayout title={`${section.label} — Zephyr`} description={section.description} entries={entries} currentSection={section.id} headings={headings}>
+  <div data-article-body>
+    <h1 class="sr-only">{section.label}</h1>
+    {section.id === "life" ? groups.map((group, index) => (
+      <section class="collection-group">
+        <div class="section-heading"><h2 id={`group-${index}`}>{group.label}</h2><span class="collection-count">{group.items.length}</span></div>
+        <EntryList entries={sectionEntries.filter((entry) => group.items.some((item) => item.href === getEntryHref(entry)))} showSection={false} />
+      </section>
+    )) : <EntryList entries={sectionEntries} showSection={false} />}
+    {sectionEntries.length === 0 && <p class="empty-state">More to come.</p>}
+  </div>
+</SiteLayout>

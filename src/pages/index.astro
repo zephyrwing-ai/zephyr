@@ -1,0 +1,37 @@
+---
+import { ArrowUpRight, ArrowRight } from "lucide-react";
+import SiteLayout from "@/layouts/SiteLayout.astro";
+import EntryList from "@/components/EntryList.astro";
+import { getPublishedEntries, getEntryHref } from "@/lib/content";
+const entries = await getPublishedEntries();
+const latest = entries.slice(0, 3);
+const projects = entries.filter((entry) => entry.data.section === "project").sort((a, b) => Number(b.data.featured) - Number(a.data.featured));
+const featuredEntry = entries.find((entry) => entry.data.section === "weekly" && entry.data.featured) || entries[0];
+const headings = [
+  { depth: 2, slug: "recent-notes", text: "Recent notes" },
+  { depth: 2, slug: "selected-projects", text: "Selected projects" },
+];
+---
+<SiteLayout entries={entries} headings={headings}>
+  <div data-article-body>
+    <section class="home-hero">
+      <h1>Notes, ideas,<br /><span>and projects.</span></h1>
+      <a href={featuredEntry ? getEntryHref(featuredEntry) : "/weekly/"} class="text-link hero-link">Read the latest <ArrowRight size={16} aria-hidden="true" /></a>
+    </section>
+    <section class="home-section">
+      <div class="section-heading"><h2 id="recent-notes">Recent notes</h2><a href="/weekly/" class="quiet-link">Browse Weekly <ArrowUpRight size={14} aria-hidden="true" /></a></div>
+      <EntryList entries={latest} />
+    </section>
+    <section class="home-section">
+      <div class="section-heading"><h2 id="selected-projects">Selected projects</h2><a href="/project/" class="quiet-link">All projects <ArrowUpRight size={14} aria-hidden="true" /></a></div>
+      <div class="project-grid">{projects.map((entry) => (
+        <a class="project-preview" href={getEntryHref(entry)}>
+          {entry.data.cover && <div class="project-image"><img src={entry.data.cover.src} alt={entry.data.cover.alt} width={entry.data.cover.width} height={entry.data.cover.height} loading="lazy" /></div>}
+          <div class="project-preview-title"><h3>{entry.data.title}</h3><ArrowUpRight size={17} aria-hidden="true" /></div>
+          <p>{entry.data.description}</p>
+          <span class="project-kind">{entry.data.topic || "Independent project"}</span>
+        </a>
+      ))}</div>
+    </section>
+  </div>
+</SiteLayout>

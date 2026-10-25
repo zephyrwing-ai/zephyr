@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="540" viewBox="0 0 800 540" fill="none">
+  <rect width="800" height="540" fill="#E9ECE8"/>
+  <path d="M0 445 800 180M0 510 800 245M75 540 800 310" stroke="#DDE2DC"/>
+  <rect x="91" y="78" width="620" height="392" rx="10" fill="#D8DDD5"/>
+  <rect x="85" y="70" width="620" height="392" rx="10" fill="#FFF" stroke="#D9DDD6"/>
+  <path d="M85 125h620M245 125v337" stroke="#EFEFEC"/>
+  <g fill="#272B25" font-family="Arial, sans-serif"><text x="113" y="105" font-size="22" font-weight="600">zephyr</text><text x="337" y="103" font-size="11">Weekly</text><text x="402" y="103" font-size="11">Life</text><text x="447" y="103" font-size="11">Project</text></g>
+  <circle cx="665" cy="98" r="8" stroke="#A3ABA0"/><path d="m662 98 3 3 4-6" stroke="#6F7C66"/>
+  <rect x="105" y="148" width="118" height="25" rx="5" fill="#F0F2EE"/>
+  <g fill="#71786D" font-family="Arial, sans-serif" font-size="10"><text x="118" y="165">Start here</text><text x="118" y="207" font-size="8" letter-spacing="1.5">WEEKLY</text><text x="118" y="231">A week in notes</text><text x="118" y="254">Small observations</text><text x="118" y="295" font-size="8" letter-spacing="1.5">LIFE</text><text x="118" y="319">Architecture &amp; light</text><text x="118" y="342">Quiet interfaces</text></g>
+  <circle cx="280" cy="164" r="3" fill="#7B8E6B"/>
+  <text x="291" y="168" fill="#7F857B" font-family="Arial, sans-serif" font-size="9">A PERSONAL CORNER</text>
+  <g fill="#272B25" font-family="Arial, sans-serif" font-size="39" font-weight="500" letter-spacing="-1.8"><text x="276" y="224">Notes, observations,</text><text x="276" y="270" fill="#92998B">and things I make.</text></g>
+  <path d="M278 302h302M278 314h247" stroke="#D5D9D0" stroke-width="4" stroke-linecap="round"/>
+  <path d="M278 350h392" stroke="#ECEEE8"/>
+  <g font-family="Arial, sans-serif"><text x="278" y="376" fill="#7C8474" font-size="8" letter-spacing="1">RECENT NOTES</text><text x="278" y="399" fill="#404738" font-size="12">A place for ideas to take shape</text><text x="278" y="420" fill="#8B9384" font-size="9">Reading, making, and everything in between.</text></g>
+</svg>

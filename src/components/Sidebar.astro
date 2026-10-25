@@ -1,0 +1,27 @@
+---
+import type { NavGroup } from "@/lib/content";
+interface Props { groups: NavGroup[]; currentPath: string; label?: string }
+const { groups, currentPath, label = "Content navigation" } = Astro.props;
+---
+<aside class="site-sidebar">
+  <div class="sidebar-inner">
+    <nav aria-label={label}>
+      {groups.map((group) => {
+        const active = group.items.some((item) => item.href === currentPath);
+        const items = (
+          <ul>{group.items.map((item) => (
+            <li><a href={item.href} class:list={["sidebar-link", { "is-current": currentPath === item.href }]} aria-current={currentPath === item.href ? "page" : undefined}>{item.label}</a></li>
+          ))}</ul>
+        );
+        return group.collapsible ? (
+          <details class="sidebar-group sidebar-disclosure" open={active}>
+            <summary class="eyebrow sidebar-group-label">{group.label}</summary>
+            {items}
+          </details>
+        ) : (
+          <div class="sidebar-group">{group.showLabel !== false && <p class="eyebrow sidebar-group-label">{group.label}</p>}{items}</div>
+        );
+      })}
+    </nav>
+  </div>
+</aside>
