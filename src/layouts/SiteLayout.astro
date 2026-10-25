@@ -7,6 +7,7 @@ import Sidebar from "@/components/Sidebar.astro";
 import TableOfContents from "@/components/TableOfContents.astro";
 import { sections, site, type SectionId } from "@/config/site";
 import { getSectionGroups, type Entry } from "@/lib/content";
+import { url } from "@/lib/paths";
 
 interface Props {
   title?: string;
@@ -39,7 +40,7 @@ const canonical = Astro.site ? new URL(currentPath, Astro.site).href : undefined
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_US" />
     {canonical && <><link rel="canonical" href={canonical} /><meta property="og:url" content={canonical} /></>}
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href={url("/favicon.svg")} />
     <title>{title}</title>
   </head>
   <body data-elastic-root>
@@ -49,9 +50,9 @@ const canonical = Astro.site ? new URL(currentPath, Astro.site).href : undefined
     <div data-elastic-content>
     <header class="site-header" data-site-header>
       <div class="header-inner">
-        <a class="wordmark" href="/" aria-label="Zephyr home">Zephyr</a>
+        <a class="wordmark" href={url("/")} aria-label="Zephyr home">Zephyr</a>
         <nav class="top-navigation" aria-label="Main navigation">{sections.map((section) => (
-          <a href={`/${section.id}/`} class:list={{ "is-active": currentSection === section.id }} aria-current={currentSection === section.id ? "true" : undefined}>{section.label}</a>
+          <a href={url(`/${section.id}/`)} class:list={{ "is-active": currentSection === section.id }} aria-current={currentSection === section.id ? "true" : undefined}>{section.label}</a>
         ))}</nav>
         <div class="header-actions">
           {socialLinks.map((link) => link.href

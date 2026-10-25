@@ -1,5 +1,6 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 import type { SectionId } from "../config/site";
+import { url } from "./paths";
 
 export type Entry = CollectionEntry<"entries">;
 
@@ -29,8 +30,12 @@ export function getEntrySlug(entry: Entry): string {
   return slug;
 }
 
-export function getEntryHref(entry: Entry): string {
+export function getEntryPath(entry: Entry): string {
   return `/${entry.data.section}/${getEntrySlug(entry)}/`;
+}
+
+export function getEntryHref(entry: Entry): string {
+  return url(getEntryPath(entry));
 }
 
 export async function getPublishedEntries(): Promise<Entry[]> {
