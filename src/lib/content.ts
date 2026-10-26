@@ -86,7 +86,3 @@ export function getSectionGroups(section: SectionId, entries: Entry[]): NavGroup
     })),
   }));
 }
-
-export function formatDate(date: string): string {
-  return date.replaceAll("-", ".");
-}
