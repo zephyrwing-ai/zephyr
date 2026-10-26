@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="540" viewBox="0 0 800 540" fill="none">
-  <rect width="800" height="540" fill="#EEECE8"/>
-  <rect x="139" y="93" width="536" height="367" rx="5" transform="rotate(3 139 93)" fill="#DAD7D1"/>
-  <rect x="120" y="75" width="552" height="386" rx="5" fill="#FAF9F6" stroke="#D9D6CF"/>
-  <rect x="120" y="75" width="15" height="386" rx="3" fill="#383D34"/>
-  <path d="M166 116h469M166 282h469M166 339h469M166 396h469" stroke="#E2E0D9"/>
-  <g font-family="Arial, sans-serif"><text x="168" y="104" fill="#7D8075" font-size="9" letter-spacing="2">A SMALL LIBRARY OF IDEAS</text><text x="166" y="179" fill="#33382F" font-size="43" letter-spacing="-2">Reading index.</text><text x="168" y="211" fill="#7B8072" font-size="12">Keep what stays with you.</text><text x="168" y="266" fill="#8C9182" font-size="8" letter-spacing="1.5">TITLE / NOTES</text><text x="559" y="266" fill="#8C9182" font-size="8" letter-spacing="1.5">TOPIC</text><text x="168" y="307" fill="#4E5646" font-size="13">The shape of everyday things</text><text x="168" y="325" fill="#909587" font-size="9">On objects that make life a little easier</text><text x="566" y="311" fill="#78846A" font-size="10">Design</text><text x="168" y="364" fill="#4E5646" font-size="13">A room, a window, a little light</text><text x="168" y="382" fill="#909587" font-size="9">Noticing the spaces around us</text><text x="566" y="368" fill="#78846A" font-size="10">Space</text><text x="168" y="421" fill="#4E5646" font-size="13">Building with intention</text><text x="168" y="439" fill="#909587" font-size="9">From an idea to something you can use</text><text x="566" y="425" fill="#78846A" font-size="10">Making</text></g>
-  <circle cx="618" cy="170" r="18" stroke="#ADB69E"/><path d="M608 170h20m-10-10v20" stroke="#7C8C6A"/>
-</svg>

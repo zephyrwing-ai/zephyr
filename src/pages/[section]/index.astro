@@ -24,6 +24,5 @@ const headings = section.id === "life"
         <EntryList entries={sectionEntries.filter((entry) => group.items.some((item) => item.href === getEntryHref(entry)))} showSection={false} />
       </section>
     )) : <EntryList entries={sectionEntries} showSection={false} />}
-    {sectionEntries.length === 0 && <p class="empty-state">More to come.</p>}
   </div>
 </SiteLayout>
