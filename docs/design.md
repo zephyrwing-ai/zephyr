@@ -34,5 +34,5 @@ Content and publishing
 - Validation: A shared schema checks sections, calendar dates, update order, and cover metadata.
 - Publication: Pages, lists, and feeds use one published-content query with Shanghai calendar dates.
 - Paths: Filenames provide stable article slugs, and one helper generates article links.
+- Deployment paths: `SITE_URL` supplies the production origin and base path; the shared URL helper and Markdown renderer apply that base to root-relative links and assets, canonical links, RSS, and the sitemap.
 - Build: Astro generates static HTML; React loads for interactive controls.
-- Domain: SITE_URL supplies the production origin for canonical links, RSS, and the sitemap.

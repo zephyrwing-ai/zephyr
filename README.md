@@ -4,7 +4,7 @@ A personal site for weekly notes, everyday observations, and work in progress.
 
 ## Run locally
 
-Use Node.js 22.12 or later.
+Use Node.js 22.22 or later.
 
 ```sh
 npm ci
