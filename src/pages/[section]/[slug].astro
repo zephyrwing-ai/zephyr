@@ -1,17 +1,12 @@
 ---
-import { render } from "astro:content";
-import SiteLayout from "@/layouts/SiteLayout.astro";
+import ArticleView from "@/components/ArticleView.astro";
 import { getPublishedEntries, getEntrySlug, type Entry } from "@/lib/content";
 export async function getStaticPaths() {
-  const entries = await getPublishedEntries();
+  const entries = await getPublishedEntries("en");
   return entries.map((entry) => ({ params: { section: entry.data.section, slug: getEntrySlug(entry) }, props: { entry } }));
 }
 interface Props { entry: Entry }
 const { entry } = Astro.props;
-const entries = await getPublishedEntries();
-const { Content, headings } = await render(entry);
 ---
-<SiteLayout title={`${entry.data.title} — Zephyr`} description={entry.data.description} entries={entries} currentSection={entry.data.section} headings={headings}>
-  <h1 class="sr-only">{entry.data.title}</h1>
-  <article class="article-prose" data-article-body><Content /></article>
-</SiteLayout>
+
+<ArticleView entry={entry} />

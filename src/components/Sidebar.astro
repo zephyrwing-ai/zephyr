@@ -1,7 +1,7 @@
 ---
 import type { NavGroup } from "@/lib/content";
-interface Props { groups: NavGroup[]; currentPath: string; label?: string }
-const { groups, currentPath, label = "Content navigation" } = Astro.props;
+interface Props { groups: NavGroup[]; currentPath: string; label: string }
+const { groups, currentPath, label } = Astro.props;
 ---
 <aside class="site-sidebar">
   <div class="sidebar-inner">

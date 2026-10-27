@@ -1,0 +1,51 @@
+---
+import { ArrowUpRight, ArrowRight } from "lucide-react";
+import SiteLayout from "@/layouts/SiteLayout.astro";
+import EntryList from "@/components/EntryList.astro";
+import { ui, type Locale } from "@/config/site";
+import { getPublishedEntries, getEntryHref } from "@/lib/content";
+import { localizeUrl, url } from "@/lib/paths";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const copy = ui[locale].home;
+const entries = await getPublishedEntries(locale);
+const latest = entries.slice(0, 3);
+const projects = entries
+  .filter((entry) => entry.data.section === "project")
+  .sort((a, b) => Number(b.data.featured) - Number(a.data.featured));
+const featuredEntry = entries.find((entry) => entry.data.section === "weekly" && entry.data.featured) || entries[0];
+const headings = [
+  { depth: 2, slug: "recent-notes", text: copy.recentNotes },
+  ...(projects.length > 0 ? [{ depth: 2, slug: "selected-projects", text: copy.selectedProjects }] : []),
+];
+---
+
+<SiteLayout locale={locale} entries={entries} headings={headings}>
+  <div data-article-body>
+    <section class="home-hero">
+      <h1>{copy.heroLead}<br /><span>{copy.heroTail}</span></h1>
+      <a href={featuredEntry ? getEntryHref(featuredEntry) : localizeUrl("/weekly/", locale)} class="text-link hero-link">{copy.readLatest} <ArrowRight size={16} aria-hidden="true" /></a>
+    </section>
+    <section class="home-section">
+      <div class="section-heading"><h2 id="recent-notes">{copy.recentNotes}</h2><a href={localizeUrl("/weekly/", locale)} class="quiet-link">{copy.browseWeekly} <ArrowUpRight size={14} aria-hidden="true" /></a></div>
+      <EntryList entries={latest} locale={locale} />
+    </section>
+    {projects.length > 0 && (
+      <section class="home-section">
+        <div class="section-heading"><h2 id="selected-projects">{copy.selectedProjects}</h2><a href={localizeUrl("/project/", locale)} class="quiet-link">{copy.allProjects} <ArrowUpRight size={14} aria-hidden="true" /></a></div>
+        <div class="project-grid">{projects.map((entry) => (
+          <a class="project-preview" href={getEntryHref(entry)}>
+            {entry.data.cover && <div class="project-image"><img src={url(entry.data.cover.src)} alt={entry.data.cover.alt} width={entry.data.cover.width} height={entry.data.cover.height} loading="lazy" /></div>}
+            <div class="project-preview-title"><h3>{entry.data.title}</h3><ArrowUpRight size={17} aria-hidden="true" /></div>
+            <p>{entry.data.description}</p>
+            <span class="project-kind">{entry.data.topic || copy.independentProject}</span>
+          </a>
+        ))}</div>
+      </section>
+    )}
+  </div>
+</SiteLayout>

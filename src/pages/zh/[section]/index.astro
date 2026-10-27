@@ -1,0 +1,11 @@
+---
+import SectionView from "@/components/SectionView.astro";
+import { sectionIds } from "@/config/site";
+export function getStaticPaths() {
+  return sectionIds.map((sectionId) => ({ params: { section: sectionId }, props: { sectionId } }));
+}
+interface Props { sectionId: (typeof sectionIds)[number] }
+const { sectionId } = Astro.props;
+---
+
+<SectionView locale="zh" sectionId={sectionId} />

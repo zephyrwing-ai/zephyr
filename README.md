@@ -16,11 +16,13 @@ Open `http://127.0.0.1:4321/`. Run `npm run build` to check the project and gene
 ## Edit
 
 - `src/config/site.ts`: name, introduction, X and GitHub links, contact email, and sections.
-- `src/content/entries/`: Markdown articles in `weekly`, `life`, and `project`.
+- `src/content/entries/{en,zh}/`: Markdown articles in `weekly`, `life`, and `project`.
 - `src/styles/global.css`: colors, layout, and typography.
 - `public/`: images and icons.
 
-Each article declares `section`, `title`, `description`, and `publishedAt`. Its filename supplies the URL slug. Use `topic` for Life groups, `featured` for homepage selections, and `cover` for project images.
+Each article declares `locale`, `section`, `title`, `description`, and `publishedAt`. Its filename supplies the URL slug. Use `topic` for Life groups, `featured` for homepage selections, and `cover` for project images.
+
+English routes use the root path, such as `/weekly/2026-w43/`. Chinese routes use `/zh/`, such as `/zh/weekly/2026-w43/`. Each language has its own Markdown entry and can share the same filename.
 
 Weekly entries are grouped by publication year. Each year is collapsible, and the group containing the current article opens automatically.
 

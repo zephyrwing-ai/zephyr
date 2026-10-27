@@ -1,12 +1,13 @@
 ---
 import type { MarkdownHeading } from "astro";
-interface Props { headings: MarkdownHeading[] }
-const { headings } = Astro.props;
+import { ui, type Locale } from "@/config/site";
+interface Props { headings: MarkdownHeading[]; locale: Locale }
+const { headings, locale } = Astro.props;
 const outline = headings.filter((heading) => heading.depth === 2);
 ---
 {outline.length > 0 && (
   <aside class="page-outline"><div class="outline-inner">
-    <nav aria-label="Article sections"><ul>{outline.map((heading) => (
+    <nav aria-label={ui[locale].articleSections}><ul>{outline.map((heading) => (
       <li><a href={`#${heading.slug}`} data-toc-link>{heading.text}</a></li>
     ))}</ul></nav>
   </div></aside>

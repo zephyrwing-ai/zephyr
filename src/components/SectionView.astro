@@ -1,0 +1,32 @@
+---
+import SiteLayout from "@/layouts/SiteLayout.astro";
+import EntryList from "@/components/EntryList.astro";
+import { getSection, type Locale, type SectionId } from "@/config/site";
+import { getPublishedEntries, getSectionGroups, getEntryHref } from "@/lib/content";
+
+interface Props {
+  locale: Locale;
+  sectionId: SectionId;
+}
+
+const { locale, sectionId } = Astro.props;
+const section = getSection(sectionId, locale)!;
+const entries = await getPublishedEntries(locale);
+const sectionEntries = entries.filter((entry) => entry.data.section === section.id);
+const groups = getSectionGroups(section.id, sectionEntries, locale);
+const headings = section.id === "life"
+  ? groups.map((group, index) => ({ depth: 2, slug: `group-${index}`, text: group.label }))
+  : [];
+---
+
+<SiteLayout title={`${section.label} — Zephyr`} description={section.description} locale={locale} entries={entries} currentSection={section.id} headings={headings}>
+  <div data-article-body>
+    <h1 class="sr-only">{section.label}</h1>
+    {section.id === "life" ? groups.map((group, index) => (
+      <section class="collection-group">
+        <div class="section-heading"><h2 id={`group-${index}`}>{group.label}</h2><span class="collection-count">{group.items.length}</span></div>
+        <EntryList entries={sectionEntries.filter((entry) => group.items.some((item) => item.href === getEntryHref(entry)))} locale={locale} showSection={false} />
+      </section>
+    )) : <EntryList entries={sectionEntries} locale={locale} showSection={false} />}
+  </div>
+</SiteLayout>

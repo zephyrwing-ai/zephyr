@@ -1,7 +1,7 @@
 import { defineCollection } from "astro:content";
 import { glob } from "astro/loaders";
 import { z } from "astro/zod";
-import { sections } from "./config/site";
+import { locales, sectionIds } from "./config/site";
 
 const calendarDate = z
   .string()
@@ -15,7 +15,8 @@ const entries = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/entries" }),
   schema: z
     .object({
-      section: z.enum(sections.map((section) => section.id)),
+      locale: z.enum(locales).default("en"),
+      section: z.enum(sectionIds),
       title: z.string().trim().min(1),
       description: z.string().trim().min(1),
       publishedAt: calendarDate,

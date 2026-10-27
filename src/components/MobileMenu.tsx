@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu } from "lucide-react";
-import { getSection, type SectionId } from "@/config/site";
+import { getSection, ui, type Locale, type SectionId } from "@/config/site";
 import type { NavGroup } from "@/lib/content";
 import { Button } from "@/components/ui/button";
 import {
@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/sheet";
 
 interface MobileMenuProps {
+  locale: Locale;
   groups: NavGroup[];
   currentPath: string;
   currentSection?: SectionId;
@@ -68,9 +69,10 @@ function ArticleNavigation({
   });
 }
 
-export default function MobileMenu({ groups, currentPath, currentSection }: MobileMenuProps) {
+export default function MobileMenu({ locale, groups, currentPath, currentSection }: MobileMenuProps) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const current = currentSection ? getSection(currentSection) : undefined;
+  const current = currentSection ? getSection(currentSection, locale) : undefined;
+  const texts = ui[locale];
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -87,16 +89,16 @@ export default function MobileMenu({ groups, currentPath, currentSection }: Mobi
   return (
     <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon" className="rounded-full lg:hidden" aria-label="Open article navigation">
+        <Button variant="ghost" size="icon" className="rounded-full lg:hidden" aria-label={texts.openArticleNavigation}>
           <Menu className="size-4" aria-hidden="true" />
         </Button>
       </SheetTrigger>
       <SheetContent side="left" className="w-[min(88vw,22rem)] gap-6">
         <SheetHeader>
-          <SheetTitle>{current?.label ?? "Articles"}</SheetTitle>
-          <SheetDescription className="sr-only">Choose an article</SheetDescription>
+          <SheetTitle>{current?.label ?? texts.articles}</SheetTitle>
+          <SheetDescription className="sr-only">{texts.chooseArticle}</SheetDescription>
         </SheetHeader>
-        <nav className="min-h-0 flex-1 overflow-y-auto px-4 pb-8" aria-label="Article navigation">
+        <nav className="min-h-0 flex-1 overflow-y-auto px-4 pb-8" aria-label={texts.articleNavigation}>
           <ArticleNavigation groups={groups} currentPath={currentPath} onNavigate={() => setMenuOpen(false)} />
         </nav>
       </SheetContent>

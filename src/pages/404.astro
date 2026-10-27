@@ -1,9 +1,11 @@
 ---
 import SiteLayout from "@/layouts/SiteLayout.astro";
+import { ui } from "@/config/site";
 import { getPublishedEntries } from "@/lib/content";
 import { url } from "@/lib/paths";
-const entries = await getPublishedEntries();
+const entries = await getPublishedEntries("en");
+const copy = ui.en.notFound;
 ---
-<SiteLayout title="Page not found — Zephyr" entries={entries}>
-  <section class="not-found"><p class="eyebrow">404</p><h1>Page not found.</h1><a class="text-link" href={url("/")}>Back home <span aria-hidden="true">→</span></a></section>
+<SiteLayout locale="en" title={`${copy.title} — Zephyr`} entries={entries}>
+  <section class="not-found"><p class="eyebrow">404</p><h1>{copy.heading}</h1><a class="text-link" href={url("/")}>{copy.backHome} <span aria-hidden="true">→</span></a></section>
 </SiteLayout>

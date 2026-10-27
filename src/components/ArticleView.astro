@@ -1,0 +1,19 @@
+---
+import { render } from "astro:content";
+import SiteLayout from "@/layouts/SiteLayout.astro";
+import { getPublishedEntries, type Entry } from "@/lib/content";
+
+interface Props {
+  entry: Entry;
+}
+
+const { entry } = Astro.props;
+const locale = entry.data.locale;
+const entries = await getPublishedEntries(locale);
+const { Content, headings } = await render(entry);
+---
+
+<SiteLayout title={`${entry.data.title} — Zephyr`} description={entry.data.description} locale={locale} entries={entries} currentSection={entry.data.section} headings={headings}>
+  <h1 class="sr-only">{entry.data.title}</h1>
+  <article class="article-prose" data-article-body><Content /></article>
+</SiteLayout>
