@@ -21,7 +21,7 @@ Navigation and reading
 - Sidebar selection: Year toggles use full capsule backgrounds; the current article uses stronger text without a hover background or Dock motion.
 - Routes: Native article links support sharing, reloads, and browser history.
 - Localized routes: English pages use the root path and Chinese pages use `/zh/`; both expose canonical and alternate-language links for search engines.
-- Outline: Second-level article headings generate matching anchors and outline links; H3 headings remain body structure without outline entries.
+- Outline: Second-level article headings appear one per row in a right-aligned vertical list with matching anchors; H3 headings remain part of the article structure.
 - Outline placement: The right-aligned outline stays at the vertical center of the viewport below the header, in a fixed layer outside the elastic scrolling content.
 - Reading focus: Long articles follow the header reading line; short articles map otherwise unreachable headings continuously across the available scroll range. Anchor clicks select their exact heading.
 - Outline motion: Desktop outline chips follow two-dimensional pointer proximity with a 12 percent Dock-style scale and a 3px lift.
