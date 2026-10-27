@@ -6,8 +6,16 @@ const outline = headings.filter((heading) => heading.depth === 2);
 ---
 {outline.length > 0 && (
   <aside class="page-outline"><div class="outline-inner">
-    <nav aria-label="Article sections"><ul>{outline.map((heading) => (
-      <li><a href={`#${heading.slug}`} data-toc-link>{heading.text}</a></li>
+    <nav aria-label="Article sections"><ul class="outline-rail">{outline.map((heading) => (
+      <li>
+        <a class="outline-item" href={`#${heading.slug}`} data-toc-link aria-label={heading.text}>
+          <span class="outline-mark" aria-hidden="true"></span>
+          <span class="outline-popover" aria-hidden="true">
+            <span class="outline-popover-title">{heading.text}</span>
+            <span class="outline-popover-preview" data-outline-preview></span>
+          </span>
+        </a>
+      </li>
     ))}</ul></nav>
   </div></aside>
 )}

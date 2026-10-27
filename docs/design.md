@@ -19,11 +19,12 @@ Navigation and reading
 - Grouping: Weekly entries use year groups, Life entries use topics, and Project entries form one list.
 - Sidebar selection: Year toggles use full capsule backgrounds; the current article uses stronger text without a hover background or Dock motion.
 - Routes: Native article links support sharing, reloads, and browser history.
-- Outline: Second-level article headings generate matching anchors and outline links; H3 headings remain body structure without outline entries.
+- Outline: Second-level article headings generate a vertical rail of short marks; H3 headings remain body structure without outline entries.
+- Outline labels: Hovering or focusing a mark reveals a left-opening popover with the heading and the first paragraph from that section.
 - Outline placement: The right-aligned outline stays at the vertical center of the viewport below the header, in a fixed layer outside the elastic scrolling content.
 - Reading focus: Long articles follow the header reading line; short articles map otherwise unreachable headings continuously across the available scroll range. Anchor clicks select their exact heading.
-- Outline motion: Desktop outline chips follow two-dimensional pointer proximity with a 12 percent Dock-style scale and a 3px lift.
-- Outline selection: The active heading changes to the stronger foreground color without a hover background.
+- Outline motion: Desktop rail marks expand horizontally as the pointer approaches; the active mark stays longer and the motion range follows the `--outline-dock-range` token.
+- Outline selection: The active heading uses a longer, stronger mark without a background or vertical movement.
 - Scrolling: The reading viewport owns native scrolling and anchor padding; heading coordinates are relative to the elastic content layer, so rebound motion preserves the reading position.
 - Mobile: The article list moves into a menu. The desktop outline is omitted below its responsive breakpoint.
 - Accessibility: Semantic controls, visible focus, a content skip link, and sheet focus management support keyboard use.
