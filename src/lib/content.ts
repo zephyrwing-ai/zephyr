@@ -67,7 +67,7 @@ export function getSectionGroups(section: SectionId, entries: Entry[]): NavGroup
     if (entry.data.section !== section) continue;
     const label = section === "weekly"
       ? entry.data.publishedAt.slice(0, 4)
-      : section === "life"
+      : section === "elsewhere"
         ? entry.data.topic ?? ui.notes
         : "";
     const group = groups.get(label) ?? [];
@@ -78,7 +78,7 @@ export function getSectionGroups(section: SectionId, entries: Entry[]): NavGroup
   return [...groups].map(([label, items]) => ({
     label,
     collapsible: section === "weekly",
-    showLabel: section !== "project",
+    showLabel: section !== "work",
     items: items.map((entry) => ({
       label: entry.data.title,
       href: getEntryHref(entry),

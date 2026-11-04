@@ -6,16 +6,16 @@ export const sections = [
     description: "Reading, experiments, and ideas collected week by week.",
   },
   {
-    id: "life",
-    label: "Life",
-    name: "Life & observations",
-    description: "Architecture, design, and things noticed along the way.",
+    id: "work",
+    label: "Work",
+    name: "Selected work",
+    description: "Projects shaped through design and development.",
   },
   {
-    id: "project",
-    label: "Project",
-    name: "Selected projects",
-    description: "Ideas taking shape through design and development.",
+    id: "elsewhere",
+    label: "Elsewhere",
+    name: "Elsewhere",
+    description: "Observations, references, and ideas found along the way.",
   },
 ] as const;
 
@@ -60,9 +60,9 @@ export const ui = {
     readLatest: "Read the latest",
     recentNotes: "Recent notes",
     browseWeekly: "Browse Weekly",
-    selectedProjects: "Selected projects",
-    allProjects: "All projects",
-    independentProject: "Independent project",
+    selectedWork: "Selected work",
+    allWork: "All work",
+    independentWork: "Independent work",
   },
   notes: "Notes",
   notFound: {

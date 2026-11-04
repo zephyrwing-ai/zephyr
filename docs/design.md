@@ -16,9 +16,9 @@ Visual design
 
 Navigation and reading
 
-- Sections: Selecting Weekly, Life, or Project scopes the sidebar to that section; section indexes do not repeat the navigation label as a page heading.
+- Sections: Selecting Weekly, Work, or Elsewhere scopes the sidebar to that section; section indexes do not repeat the navigation label as a page heading.
 - Homepage: The left sidebar stays empty while the main column introduces recent notes and projects.
-- Grouping: Weekly entries use year groups, Life entries use topics, and Project entries form one list.
+- Grouping: Weekly entries use year groups, Elsewhere entries use topics, and Work entries form one list.
 - Sidebar selection: Year toggles use full capsule backgrounds; the current article uses stronger text without a hover background or Dock motion.
 - Article routes: Native links support sharing, reloads, and browser history.
 - Search metadata: Every page uses the root namespace and publishes a canonical link for search engines.
@@ -33,7 +33,7 @@ Navigation and reading
 
 Content and publishing
 
-- Format: Weekly, Life, and Project use Markdown articles under `entries/`, including the Architecture and Design topics.
+- Format: Weekly, Work, and Elsewhere use Markdown articles under `entries/`, including the Architecture and Design topics.
 - Validation: A shared schema checks section, calendar dates, update order, and cover metadata.
 - Publication: Pages and lists use one published-content query with Shanghai calendar dates.
 - List metadata: Entry lists show section context without repeating publication dates; dates remain available for sorting, year grouping, and feeds.

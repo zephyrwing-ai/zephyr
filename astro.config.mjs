@@ -5,6 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 const siteUrl = process.env.SITE_URL;
 const base = siteUrl ? `${new URL(siteUrl).pathname.replace(/\/+$/, "")}/` : "/";
+const basePath = base === "/" ? "" : base.slice(0, -1);
 
 /**
  * Markdown authors write root-relative paths such as `/images/a.svg`.
@@ -32,6 +33,10 @@ export default defineConfig({
   base,
   output: "static",
   trailingSlash: "always",
+  redirects: {
+    "/life": `${basePath}/elsewhere/`,
+    "/project": `${basePath}/work/`,
+  },
   devToolbar: { enabled: false },
   markdown: {
     shikiConfig: { theme: "github-light" },
