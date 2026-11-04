@@ -43,3 +43,7 @@ Self-hosted through @fontsource/ibm-plex-mono. Its original SIL Open Font Licens
 
 Self-hosted through @fontsource-variable/dm-sans. Its original SIL Open Font License is preserved in public/licenses/DM-Sans-OFL.txt.
 
+## Geist
+
+Self-hosted through @fontsource-variable/geist. Its original SIL Open Font License is preserved in public/licenses/Geist-OFL.txt.
+

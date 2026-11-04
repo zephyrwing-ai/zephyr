@@ -158,10 +158,13 @@
 .article-prose--ibm-plex-mono { font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace; }
 .article-prose--dm-sans { font-family: "DM Sans Variable", "Helvetica Neue", sans-serif; }
 .article-prose--dm-sans :where(code, pre) { font-family: "JetBrains Mono Variable", "SFMono-Regular", Consolas, monospace; }
+.article-prose--geist { color: #141414; font-family: "Geist Variable", "Helvetica Neue", sans-serif; font-size: 17px; line-height: 1.6; }
+.article-prose--geist :where(code, pre) { font-family: "JetBrains Mono Variable", "SFMono-Regular", Consolas, monospace; }
 .article-prose > :first-child { margin-top: 0; }
 .article-prose h2 { color: var(--heading); font-size: 22px; font-weight: 500; letter-spacing: -.4px; line-height: 1.38; margin: 24px 0 8px; }
 .article-prose h3 { color: var(--heading); font-size: 17px; font-weight: 500; line-height: 1.48; margin: 16px 0 6px; }
 .article-prose p { margin: 11px 0; }
+.article-prose--geist section p { margin: 20px 0; }
 .article-prose ul, .article-prose ol { margin: 16px 0; padding-left: 1.4em; }
 .article-prose ul { list-style: disc; }
 .article-prose ol { list-style: decimal; }
@@ -223,6 +226,7 @@
   .project-grid { grid-template-columns: 1fr; gap: 28px; }
   .site-footer { margin-top: 42px; }
   .article-prose { font-size: 15px; }
+  .article-prose--geist { font-size: 17px; }
   .article-prose h2 { font-size: 20px; }
   .type-specimen__title { font-size: 52px; }
   .type-specimen__lede { font-size: 17px; }
