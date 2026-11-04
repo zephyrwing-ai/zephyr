@@ -153,6 +153,8 @@
 .collection-group:first-child { margin-top: 0; }
 .collection-count { color: var(--subtle); font-size: 11px; }
 .article-prose { font-size: 16px; line-height: 1.72; overflow-wrap: break-word; }
+.article-prose--manrope { font-family: "Manrope Variable", "Helvetica Neue", sans-serif; }
+.article-prose--manrope :where(code, pre) { font-family: "JetBrains Mono Variable", "SFMono-Regular", Consolas, monospace; }
 .article-prose > :first-child { margin-top: 0; }
 .article-prose h2 { color: var(--heading); font-size: 22px; font-weight: 500; letter-spacing: -.4px; line-height: 1.38; margin: 24px 0 8px; }
 .article-prose h3 { color: var(--heading); font-size: 17px; font-weight: 500; line-height: 1.48; margin: 16px 0 6px; }

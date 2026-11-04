@@ -31,3 +31,7 @@ SOFTWARE.
 
 Self-hosted through @fontsource-variable/jetbrains-mono. Its original SIL Open Font License is preserved in public/licenses/JetBrains-Mono-OFL.txt.
 
+## Manrope
+
+Self-hosted through @fontsource-variable/manrope. Its original SIL Open Font License is preserved in public/licenses/Manrope-OFL.txt.
+
