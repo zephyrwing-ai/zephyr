@@ -1,6 +1,6 @@
 Visual design
 
-- Identity: The Zephyr wordmark links to the homepage.
+- Identity: The Zephyr avatar and wordmark form one homepage link in the header.
 - Appearance: A single light palette uses shared color and spacing tokens.
 - Scroll chrome: The reading viewport and local navigation hide native scrollbars while preserving wheel, trackpad, keyboard, and touch scrolling.
 - Layout: Desktop articles place an entry list beside the reading column and an H2 outline on the right.

@@ -32,6 +32,11 @@ export const site = {
   description: "Notes, observations, and projects by Zephyr.",
   language: "en",
   ogLocale: "en_US",
+  avatar: {
+    src: "/images/zephyr-avatar.jpg",
+    width: 512,
+    height: 512,
+  },
   github: "https://github.com/zephyrwing-ai",
   x: "https://x.com/zhngzhmng28226",
   email: "zephyr200412@gmail.com",

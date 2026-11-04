@@ -18,7 +18,7 @@ Open `http://127.0.0.1:4321/`. Run `npm run build` to check the project and gene
 - `src/config/site.ts`: name, introduction, X and GitHub links, contact email, and sections.
 - `src/content/entries/`: Markdown articles in `weekly`, `life`, and `project`.
 - `src/styles/global.css`: colors, layout, and typography.
-- `public/`: images and icons.
+- `public/`: images and icons, including the header avatar at `public/images/zephyr-avatar.jpg`.
 
 Each article declares `section`, `title`, `description`, and `publishedAt`. Its filename supplies the URL slug. Use `topic` for Life groups, `featured` for homepage selections, and `cover` for project images. Article titles use IBM Plex Mono at weight 500, and article bodies use DM Sans at weight 400 and 16px.
 

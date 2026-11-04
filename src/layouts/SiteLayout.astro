@@ -50,7 +50,17 @@ const canonical = Astro.site ? new URL(currentPath, Astro.site).href : undefined
     <div data-elastic-content>
     <header class="site-header" data-site-header>
       <div class="header-inner">
-        <a class="wordmark" href={url("/")} aria-label={ui.homeAria}>Zephyr</a>
+        <a class="brand-lockup" href={url("/")} aria-label={ui.homeAria}>
+          <img
+            class="brand-avatar"
+            src={url(site.avatar.src)}
+            width={site.avatar.width}
+            height={site.avatar.height}
+            alt=""
+            decoding="async"
+          />
+          <span class="wordmark">Zephyr</span>
+        </a>
         <nav class="top-navigation" aria-label={ui.mainNavigation}>{sections.map((section) => (
           <a href={url(`/${section.id}/`)} class:list={{ "is-active": currentSection?.id === section.id }} aria-current={currentSection?.id === section.id ? "true" : undefined}>{section.label}</a>
         ))}</nav>
