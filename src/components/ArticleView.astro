@@ -2,6 +2,7 @@
 import { render } from "astro:content";
 import "@fontsource-variable/dm-sans/wght.css";
 import "@fontsource/ibm-plex-mono/latin-500.css";
+import ImageLightbox from "@/components/ImageLightbox.astro";
 import SiteLayout from "@/layouts/SiteLayout.astro";
 import { getSection } from "@/config/site";
 import { getPublishedEntries, type Entry } from "@/lib/content";
@@ -21,4 +22,5 @@ const { Content, headings } = await render(entry);
     <h1 class="article-title">{entry.data.title}</h1>
     <Content />
   </article>
+  <ImageLightbox />
 </SiteLayout>

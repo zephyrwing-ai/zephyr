@@ -1,0 +1,35 @@
+---
+import "@fontsource/ibm-plex-mono/latin-500.css";
+import { url } from "@/lib/paths";
+
+interface Props {
+  id: string;
+  eyebrow: string;
+  titleLines: readonly string[];
+  imageUrl: string;
+}
+
+const { id, eyebrow, titleLines, imageUrl } = Astro.props;
+---
+
+<section class="sticky-media-band" data-parallax-band aria-labelledby={id}>
+  <div class="sticky-media-band__viewport">
+    <div
+      class="sticky-media-band__media"
+      data-parallax-media
+      style={`--parallax-image: url("${url(imageUrl)}")`}
+      aria-hidden="true"
+    ></div>
+    <div class="sticky-media-band__wash" aria-hidden="true"></div>
+    <div class="sticky-media-band__copy">
+      <p class="eyebrow">{eyebrow}</p>
+      <h2 class="sticky-media-band__title" id={id}>
+        {titleLines.map((line) => <span class="sticky-media-band__title-line">{line}</span>)}
+      </h2>
+    </div>
+  </div>
+</section>
+
+<script>
+  import "@/scripts/parallax-media";
+</script>

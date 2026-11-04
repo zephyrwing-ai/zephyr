@@ -13,11 +13,15 @@ Visual design
 - Typography: Self-hosted JetBrains Mono and comfortable line spacing establish a consistent reading rhythm.
 - Article typography: Every article title uses IBM Plex Mono at weight 500, and every article body uses DM Sans at weight 400 and 16px.
 - Images: Project covers provide descriptive alt text and explicit dimensions.
+- Article images: Markdown images receive a tinted frame derived from the source image, lazy loading, optional captions, and a click-to-open dialog.
+- Field notes band: The homepage uses a sticky image band with restrained scroll-linked depth and avatar artwork.
+- Reduced motion: The field notes band becomes a static image section when reduced motion is requested.
 
 Navigation and reading
 
 - Sections: Selecting Weekly, Work, or Elsewhere scopes the sidebar to that section; section indexes do not repeat the navigation label as a page heading.
 - Homepage: The left sidebar stays empty while the main column introduces recent notes and projects.
+- Homepage outline: The homepage keeps the right outline hidden so the field notes media band remains unobstructed.
 - Grouping: Weekly entries form one chronological list, Elsewhere entries use topics, and Work entries form one list.
 - Sidebar selection: The current article uses stronger text without a hover background or Dock motion.
 - Article routes: Native links support sharing, reloads, and browser history.

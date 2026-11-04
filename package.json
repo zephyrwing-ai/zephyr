@@ -10,6 +10,7 @@
     "dev": "astro dev --host 127.0.0.1 --port 4321",
     "check": "astro check",
     "build": "astro check && astro build",
+    "test": "node --experimental-strip-types --test tests/*.test.mjs",
     "preview": "astro preview --host 127.0.0.1 --port 4321"
   },
   "dependencies": {
@@ -35,6 +36,7 @@
     "@types/node": "^22.19.0",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
+    "sharp": "^0.35.5",
     "typescript": "^5.9.3"
   }
 }

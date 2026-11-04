@@ -42,6 +42,24 @@ Optional fields:
 
 The schema accepts descriptions from 40 to 180 characters.
 
+## Images and captions
+
+Publish article images with standard Markdown syntax:
+
+```md
+![Descriptive alt text](/images/example.jpg "Optional visible caption")
+```
+
+Local images under `public/images/` receive these features automatically:
+
+- A frame whose tint comes from the image's dominant color.
+- Intrinsic width and height attributes.
+- Lazy loading and asynchronous decoding.
+- A keyboard-accessible Expand control.
+- A native dialog that shows the original image at a larger size.
+
+Use the Markdown title only when the image needs a visible caption. Use the alt text to describe the image for assistive technology.
+
 ## Description contract
 
 The description appears in section lists, homepage lists, RSS, and search metadata. The current descriptions were written manually. Their editorial pattern is:

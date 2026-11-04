@@ -24,10 +24,12 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - name: Test
+        run: npm test
       - name: Build
         env:
           SITE_URL: https://zephyrwing-ai.github.io/zephyr
-        run: npm exec astro -- build
+        run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 import { unified } from "@astrojs/markdown-remark";
 import tailwindcss from "@tailwindcss/vite";
+import { rehypeArticleImages } from "./src/lib/rehype-article-images.mjs";
 
 const siteUrl = process.env.SITE_URL;
 const base = siteUrl ? `${new URL(siteUrl).pathname.replace(/\/+$/, "")}/` : "/";
@@ -41,7 +42,10 @@ export default defineConfig({
   markdown: {
     shikiConfig: { theme: "github-light" },
     processor: unified({
-      rehypePlugins: base === "/" ? [] : [prefixBaseUrls(base)],
+      rehypePlugins: [
+        rehypeArticleImages,
+        ...(base === "/" ? [] : [prefixBaseUrls(base)]),
+      ],
     }),
   },
   integrations: [react()],

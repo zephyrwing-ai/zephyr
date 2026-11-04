@@ -28,9 +28,11 @@ Weekly entries form one chronological list, and every entry displays its full pu
 
 Keep drafts with `draft: true`. Publication dates use the Shanghai calendar, and scheduled entries appear after a build on or after their publication date.
 
-The Work with me link uses the visitor's configured email application to compose a message. Reading-focus regression tests run with `node --experimental-strip-types --test tests/reading-position.test.mjs`.
+The Work with me link uses the visitor's configured email application to compose a message. Run `npm test` for the reading-position and article-image regression tests.
 
 Article formatting, metadata, and reusable AI publishing instructions are documented in `docs/article-publishing.md`.
+
+Article images use standard Markdown syntax. Local images are automatically framed with a build-time accent color and opened in an accessible dialog for closer viewing.
 
 ## Deploy
 
