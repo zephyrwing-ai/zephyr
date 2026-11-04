@@ -24,11 +24,13 @@ Each article declares `section`, `title`, `description`, and `publishedAt`. Its 
 
 Routes use the root path, such as `/weekly/2026-w43/`. The site publishes in English, and each Markdown article has one canonical route.
 
-Weekly entries are grouped by publication year. Each year is collapsible, and the group containing the current article opens automatically.
+Weekly entries form one chronological list, and every entry displays its full publication date.
 
 Keep drafts with `draft: true`. Publication dates use the Shanghai calendar, and scheduled entries appear after a build on or after their publication date.
 
-The Contact link uses the visitor's configured email application to compose a message. Reading-focus regression tests run with `node --experimental-strip-types --test tests/reading-position.test.mjs`.
+The Work with me link uses the visitor's configured email application to compose a message. Reading-focus regression tests run with `node --experimental-strip-types --test tests/reading-position.test.mjs`.
+
+Article formatting, metadata, and reusable AI publishing instructions are documented in `docs/article-publishing.md`.
 
 ## Deploy
 

@@ -52,7 +52,7 @@ export const ui = {
   openArticleNavigation: "Open article navigation",
   articles: "Articles",
   chooseArticle: "Choose an article",
-  contact: "Contact",
+  contact: "Work with me",
   opensNewTab: "opens in a new tab",
   home: {
     heroLead: "Notes, ideas,",

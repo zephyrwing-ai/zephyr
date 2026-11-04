@@ -18,6 +18,13 @@ const shanghaiCalendar = new Intl.DateTimeFormat("en", {
   day: "2-digit",
 });
 
+const entryDateFormatter = new Intl.DateTimeFormat("en", {
+  timeZone: "Asia/Shanghai",
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+});
+
 function todayInShanghai(): string {
   const parts = shanghaiCalendar.formatToParts(new Date());
   const date = Object.fromEntries(parts.map(({ type, value }) => [type, value]));
@@ -36,6 +43,10 @@ export function getEntryPath(entry: Entry): string {
 
 export function getEntryHref(entry: Entry): string {
   return url(getEntryPath(entry));
+}
+
+export function formatEntryDate(entry: Entry): string {
+  return entryDateFormatter.format(new Date(`${entry.data.publishedAt}T00:00:00+08:00`));
 }
 
 export async function getPublishedEntries(): Promise<Entry[]> {
@@ -65,11 +76,7 @@ export function getSectionGroups(section: SectionId, entries: Entry[]): NavGroup
 
   for (const entry of entries) {
     if (entry.data.section !== section) continue;
-    const label = section === "weekly"
-      ? entry.data.publishedAt.slice(0, 4)
-      : section === "elsewhere"
-        ? entry.data.topic ?? ui.notes
-        : "";
+    const label = section === "elsewhere" ? entry.data.topic ?? ui.notes : "";
     const group = groups.get(label) ?? [];
     group.push(entry);
     groups.set(label, group);
@@ -77,8 +84,8 @@ export function getSectionGroups(section: SectionId, entries: Entry[]): NavGroup
 
   return [...groups].map(([label, items]) => ({
     label,
-    collapsible: section === "weekly",
-    showLabel: section !== "work",
+    collapsible: false,
+    showLabel: section === "elsewhere",
     items: items.map((entry) => ({
       label: entry.data.title,
       href: getEntryHref(entry),

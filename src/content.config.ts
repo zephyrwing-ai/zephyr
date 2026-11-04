@@ -17,7 +17,7 @@ const entries = defineCollection({
     .object({
       section: z.enum(sections.map((section) => section.id)),
       title: z.string().trim().min(1),
-      description: z.string().trim().min(1),
+      description: z.string().trim().min(40).max(180),
       publishedAt: calendarDate,
       updatedAt: calendarDate.optional(),
       topic: z.string().trim().min(1).optional(),

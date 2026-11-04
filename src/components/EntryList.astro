@@ -1,15 +1,18 @@
 ---
 import { ArrowUpRight } from "lucide-react";
-import { getEntryHref, type Entry } from "@/lib/content";
+import { formatEntryDate, getEntryHref, type Entry } from "@/lib/content";
 import { getSection } from "@/config/site";
-interface Props { entries: Entry[]; showSection?: boolean }
-const { entries, showSection = true } = Astro.props;
+interface Props { entries: Entry[]; showSection?: boolean; showDate?: boolean }
+const { entries, showSection = true, showDate = true } = Astro.props;
 ---
 <div class="entry-list">
   {entries.map((entry) => (
     <a class="entry-row" href={getEntryHref(entry)}>
       <div class="entry-row-content">
-        {showSection && <div class="entry-meta"><span>{getSection(entry.data.section)?.label}</span></div>}
+        {(showSection || showDate) && <div class="entry-meta">
+          {showSection && <span>{getSection(entry.data.section)?.label}</span>}
+          {showDate && <time datetime={entry.data.publishedAt}>{formatEntryDate(entry)}</time>}
+        </div>}
         <h3>{entry.data.title}</h3>
         <p>{entry.data.description}</p>
       </div>

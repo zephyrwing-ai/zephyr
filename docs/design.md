@@ -7,8 +7,8 @@ Visual design
 - Alignment: Header and reading layout share a 1440px container with 40px desktop gutters; entry text aligns with the wordmark, capsule backgrounds extend into a reserved 12px gutter, and the middle track absorbs extra width.
 - Article start: The visible article begins with its content; the title remains available as a hidden semantic heading.
 - Header: The border remains hidden at the top and appears after the reading surface starts scrolling.
-- Contact: A Contact entry follows GitHub and shares the same text treatment and lighter hover color; it opens an email draft through the visitor's configured mail handler, addressed to the email in site configuration.
-- Header actions: X, GitHub, and Contact share one compact text treatment at the right edge of the header.
+- Work with me: This entry follows GitHub and shares the same text treatment and lighter hover color; it opens an email draft through the visitor's configured mail handler, addressed to the email in site configuration.
+- Header actions: X, GitHub, and Work with me share one compact text treatment at the right edge of the header.
 - Hierarchy: Type, gray values, alignment, and space distinguish content from navigation.
 - Typography: Self-hosted JetBrains Mono and comfortable line spacing establish a consistent reading rhythm.
 - Article typography: Every article title uses IBM Plex Mono at weight 500, and every article body uses DM Sans at weight 400 and 16px.
@@ -18,8 +18,8 @@ Navigation and reading
 
 - Sections: Selecting Weekly, Work, or Elsewhere scopes the sidebar to that section; section indexes do not repeat the navigation label as a page heading.
 - Homepage: The left sidebar stays empty while the main column introduces recent notes and projects.
-- Grouping: Weekly entries use year groups, Elsewhere entries use topics, and Work entries form one list.
-- Sidebar selection: Year toggles use full capsule backgrounds; the current article uses stronger text without a hover background or Dock motion.
+- Grouping: Weekly entries form one chronological list, Elsewhere entries use topics, and Work entries form one list.
+- Sidebar selection: The current article uses stronger text without a hover background or Dock motion.
 - Article routes: Native links support sharing, reloads, and browser history.
 - Search metadata: Every page uses the root namespace and publishes a canonical link for search engines.
 - Outline: Second-level article headings appear one per row in a right-aligned vertical list with matching anchors; H3 headings remain part of the article structure.
@@ -36,7 +36,7 @@ Content and publishing
 - Format: Weekly, Work, and Elsewhere use Markdown articles under `entries/`, including the Architecture and Design topics.
 - Validation: A shared schema checks section, calendar dates, update order, and cover metadata.
 - Publication: Pages and lists use one published-content query with Shanghai calendar dates.
-- List metadata: Entry lists show section context without repeating publication dates; dates remain available for sorting, year grouping, and feeds.
+- List metadata: Entry lists show section context and the full publication date; dates remain available for sorting and feeds.
 - Paths: Filenames provide stable article slugs, and one helper generates article links.
 - Deployment paths: `SITE_URL` supplies the production origin and base path; the shared URL helper and Markdown renderer apply that base to root-relative links and assets, canonical links, RSS, and the sitemap.
 - Build: Astro generates static HTML; React loads for interactive controls.
