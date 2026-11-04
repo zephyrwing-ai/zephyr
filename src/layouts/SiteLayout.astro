@@ -5,42 +5,28 @@ import type { MarkdownHeading } from "astro";
 import MobileMenu from "@/components/MobileMenu";
 import Sidebar from "@/components/Sidebar.astro";
 import TableOfContents from "@/components/TableOfContents.astro";
-import { getSections, localeOptions, locales, site, ui, type Locale, type SectionId } from "@/config/site";
+import { sections, site, ui, type Section } from "@/config/site";
 import { getSectionGroups, type Entry } from "@/lib/content";
-import { localizePath, toSitePath, url } from "@/lib/paths";
+import { url } from "@/lib/paths";
 
 interface Props {
-  locale: Locale;
   title?: string;
   description?: string;
   entries: Entry[];
-  currentSection?: SectionId;
+  currentSection?: Section;
   headings?: MarkdownHeading[];
 }
-const { locale, title = site.title[locale], description = site.description[locale], entries, currentSection, headings = [] } = Astro.props;
-const texts = ui[locale];
-const localizedSections = getSections(locale);
+const { title = site.title, description = site.description, entries, currentSection, headings = [] } = Astro.props;
 const currentPath = Astro.url.pathname;
-const groups = currentSection ? getSectionGroups(currentSection, entries, locale) : [];
+const groups = currentSection ? getSectionGroups(currentSection.id, entries) : [];
 const socialLinks = [
   { name: "X", href: site.x },
   { name: "GitHub", href: site.github },
 ];
 const canonical = Astro.site ? new URL(currentPath, Astro.site).href : undefined;
-const sitePath = toSitePath(currentPath);
-const isNotFound = sitePath === "/404/" || sitePath.endsWith("/404.html");
-const neutralPath = isNotFound
-  ? "/"
-  : locale === "zh"
-    ? sitePath.replace(/^\/zh(?=\/|$)/, "") || "/"
-    : sitePath;
-const localePaths = {
-  en: url(neutralPath),
-  zh: url(localizePath(neutralPath, "zh")),
-};
 ---
 <!doctype html>
-<html lang={localeOptions[locale].htmlLang}>
+<html lang={site.language}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -52,48 +38,40 @@ const localePaths = {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content={localeOptions[locale].ogLocale} />
+    <meta property="og:locale" content={site.ogLocale} />
     {canonical && <><link rel="canonical" href={canonical} /><meta property="og:url" content={canonical} /></>}
-    {Astro.site && locales.map((option) => <link rel="alternate" hreflang={localeOptions[option].htmlLang} href={new URL(localePaths[option], Astro.site).href} />)}
-    {Astro.site && <link rel="alternate" hreflang="x-default" href={new URL(localePaths.en, Astro.site).href} />}
     <link rel="icon" type="image/svg+xml" href={url("/favicon.svg")} />
     <title>{title}</title>
   </head>
   <body data-elastic-root>
-    <a class="skip-link" href="#main-content">{texts.skipToContent}</a>
+    <a class="skip-link" href="#main-content">{ui.skipToContent}</a>
     <div class="elastic-layout">
     <div class="elastic-scroll" data-elastic-scroll>
     <div data-elastic-content>
     <header class="site-header" data-site-header>
       <div class="header-inner">
-        <a class="wordmark" href={url(localizePath("/", locale))} aria-label={texts.homeAria}>Zephyr</a>
-        <nav class="top-navigation" aria-label={texts.mainNavigation}>{localizedSections.map((section) => (
-          <a href={url(localizePath(`/${section.id}/`, locale))} class:list={{ "is-active": currentSection === section.id }} aria-current={currentSection === section.id ? "true" : undefined}>{section.label}</a>
+        <a class="wordmark" href={url("/")} aria-label={ui.homeAria}>Zephyr</a>
+        <nav class="top-navigation" aria-label={ui.mainNavigation}>{sections.map((section) => (
+          <a href={url(`/${section.id}/`)} class:list={{ "is-active": currentSection?.id === section.id }} aria-current={currentSection?.id === section.id ? "true" : undefined}>{section.label}</a>
         ))}</nav>
         <div class="header-actions">
-          {socialLinks.map((link) => link.href
-            ? <a class="social-link" href={link.href} target="_blank" rel="noreferrer" aria-label={`${link.name} (${texts.opensNewTab})`}>{link.name}</a>
-            : <span class="social-link social-placeholder" aria-label={`${link.name} link not added`}>{link.name}</span>
-          )}
-          <a class="contact-link" href={`mailto:${site.email}`}>{texts.contact}</a>
-          <nav class="language-switch" aria-label={texts.language}>
-            {locales.map((option) => (
-              <a href={localePaths[option]} hreflang={localeOptions[option].htmlLang} lang={localeOptions[option].htmlLang} aria-current={option === locale ? "page" : undefined}>{localeOptions[option].label}</a>
-            ))}
-          </nav>
-          <MobileMenu locale={locale} groups={groups} currentPath={currentPath} currentSection={currentSection} client:load />
+          {socialLinks.map((link) => (
+            <a class="social-link" href={link.href} target="_blank" rel="noreferrer" aria-label={`${link.name} (${ui.opensNewTab})`}>{link.name}</a>
+          ))}
+          <a class="contact-link" href={`mailto:${site.email}`}>{ui.contact}</a>
+          <MobileMenu groups={groups} currentPath={currentPath} currentSection={currentSection} client:load />
         </div>
       </div>
     </header>
     <div class="site-shell">
-      {groups.length > 0 && <Sidebar groups={groups} currentPath={currentPath} label={texts.contentNavigation} />}
+      {groups.length > 0 && <Sidebar groups={groups} currentPath={currentPath} label={ui.contentNavigation} />}
       <main id="main-content" class="page-main" tabindex="-1">
         <slot />
         <footer class="site-footer"><span>© {new Date().getFullYear()} Zephyr</span></footer>
       </main>
     </div>
     </div>
-    <TableOfContents headings={headings} locale={locale} />
+    <TableOfContents headings={headings} />
     </div>
     </div>
     <script>import "@/scripts/reading"; import "@/scripts/elastic-scroll"; import "@/scripts/outline-dock";</script>

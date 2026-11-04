@@ -8,7 +8,7 @@ Visual design
 - Article start: The visible article begins with its content; the title remains available as a hidden semantic heading.
 - Header: The border remains hidden at the top and appears after the reading surface starts scrolling.
 - Contact: A Contact entry follows GitHub and shares the same text treatment and lighter hover color; it opens an email draft through the visitor's configured mail handler, addressed to the email in site configuration.
-- Language switch: Compact EN and 中文 links follow Contact; the current language uses the stronger text color and every page links to its localized counterpart.
+- Header actions: X, GitHub, and Contact share one compact text treatment at the right edge of the header.
 - Hierarchy: Type, gray values, alignment, and space distinguish content from navigation.
 - Typography: Self-hosted JetBrains Mono and comfortable line spacing establish a consistent reading rhythm.
 - Images: Project covers provide descriptive alt text and explicit dimensions.
@@ -19,8 +19,8 @@ Navigation and reading
 - Homepage: The left sidebar stays empty while the main column introduces recent notes and projects.
 - Grouping: Weekly entries use year groups, Life entries use topics, and Project entries form one list.
 - Sidebar selection: Year toggles use full capsule backgrounds; the current article uses stronger text without a hover background or Dock motion.
-- Routes: Native article links support sharing, reloads, and browser history.
-- Localized routes: English pages use the root path and Chinese pages use `/zh/`; both expose canonical and alternate-language links for search engines.
+- Article routes: Native links support sharing, reloads, and browser history.
+- Search metadata: Every page uses the root namespace and publishes a canonical link for search engines.
 - Outline: Second-level article headings appear one per row in a right-aligned vertical list with matching anchors; H3 headings remain part of the article structure.
 - Outline placement: The right-aligned outline stays at the vertical center of the viewport below the header, in a fixed layer outside the elastic scrolling content.
 - Reading focus: Long articles follow the header reading line; short articles map otherwise unreachable headings continuously across the available scroll range. Anchor clicks select their exact heading.
@@ -32,9 +32,9 @@ Navigation and reading
 
 Content and publishing
 
-- Format: Weekly, Life, and Project use Markdown articles under `entries/{en,zh}`, including the Architecture and Design topics.
-- Validation: A shared schema checks locale, section, calendar dates, update order, and cover metadata.
-- Publication: Pages and lists use one locale-scoped published-content query with Shanghai calendar dates.
+- Format: Weekly, Life, and Project use Markdown articles under `entries/`, including the Architecture and Design topics.
+- Validation: A shared schema checks section, calendar dates, update order, and cover metadata.
+- Publication: Pages and lists use one published-content query with Shanghai calendar dates.
 - List metadata: Entry lists show section context without repeating publication dates; dates remain available for sorting, year grouping, and feeds.
 - Paths: Filenames provide stable article slugs, and one helper generates article links.
 - Deployment paths: `SITE_URL` supplies the production origin and base path; the shared URL helper and Markdown renderer apply that base to root-relative links and assets, canonical links, RSS, and the sitemap.

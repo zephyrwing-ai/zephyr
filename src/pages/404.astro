@@ -3,9 +3,9 @@ import SiteLayout from "@/layouts/SiteLayout.astro";
 import { ui } from "@/config/site";
 import { getPublishedEntries } from "@/lib/content";
 import { url } from "@/lib/paths";
-const entries = await getPublishedEntries("en");
-const copy = ui.en.notFound;
+const entries = await getPublishedEntries();
+const copy = ui.notFound;
 ---
-<SiteLayout locale="en" title={`${copy.title} — Zephyr`} entries={entries}>
+<SiteLayout title={`${copy.title} — Zephyr`} entries={entries}>
   <section class="not-found"><p class="eyebrow">404</p><h1>{copy.heading}</h1><a class="text-link" href={url("/")}>{copy.backHome} <span aria-hidden="true">→</span></a></section>
 </SiteLayout>

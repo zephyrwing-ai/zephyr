@@ -1,6 +1,6 @@
 import type { APIRoute } from "astro";
-import { localizePath, url } from "@/lib/paths";
-import { localeOptions, locales, sectionIds, site as siteConfig } from "@/config/site";
+import { url } from "@/lib/paths";
+import { sections, site as siteConfig } from "@/config/site";
 import { getPublishedEntries, getEntryPath } from "@/lib/content";
 
 export function getStaticPaths() {
@@ -13,29 +13,22 @@ function escapeXml(value: string) {
 
 export const GET: APIRoute = async ({ params, site }) => {
   if (!site) return new Response(null, { status: 404 });
-  const entries = await getPublishedEntries("en");
-  const allEntries = params.feed === "sitemap"
-    ? (await Promise.all(locales.map((locale) => getPublishedEntries(locale)))).flat()
-    : [];
+  const entries = await getPublishedEntries();
   const absolute = (path: string) => escapeXml(new URL(url(path), site).href);
-  const localizedRoots = locales.flatMap((locale) => [
-    localizePath("/", locale),
-    ...sectionIds.map((section) => localizePath(`/${section}/`, locale)),
-  ]);
 
   const content = params.feed === "sitemap"
     ? [
       `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`,
-      ...localizedRoots.map((path) => `<url><loc>${absolute(path)}</loc></url>`),
-      ...allEntries.map((entry) => `<url><loc>${absolute(getEntryPath(entry))}</loc><lastmod>${entry.data.updatedAt || entry.data.publishedAt}</lastmod></url>`),
+      ...["/", ...sections.map((section) => `/${section.id}/`)].map((path) => `<url><loc>${absolute(path)}</loc></url>`),
+      ...entries.map((entry) => `<url><loc>${absolute(getEntryPath(entry))}</loc><lastmod>${entry.data.updatedAt || entry.data.publishedAt}</lastmod></url>`),
       `</urlset>`,
     ].join("")
     : [
       `<rss version="2.0"><channel>`,
       `<title>${escapeXml(siteConfig.name)}</title>`,
       `<link>${absolute("/")}</link>`,
-      `<description>${escapeXml(siteConfig.description.en)}</description>`,
-      `<language>${localeOptions.en.htmlLang}</language>`,
+      `<description>${escapeXml(siteConfig.description)}</description>`,
+      `<language>${siteConfig.language}</language>`,
       ...entries.map((entry) => [
         `<item>`,
         `<title>${escapeXml(entry.data.title)}</title>`,

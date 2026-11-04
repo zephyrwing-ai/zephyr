@@ -1,6 +1,6 @@
 import { getCollection, type CollectionEntry } from "astro:content";
-import { ui, type Locale, type SectionId } from "../config/site";
-import { localizePath, url } from "./paths";
+import { ui, type SectionId } from "../config/site";
+import { url } from "./paths";
 
 export type Entry = CollectionEntry<"entries">;
 
@@ -31,14 +31,14 @@ export function getEntrySlug(entry: Entry): string {
 }
 
 export function getEntryPath(entry: Entry): string {
-  return localizePath(`/${entry.data.section}/${getEntrySlug(entry)}/`, entry.data.locale);
+  return `/${entry.data.section}/${getEntrySlug(entry)}/`;
 }
 
 export function getEntryHref(entry: Entry): string {
   return url(getEntryPath(entry));
 }
 
-export async function getPublishedEntries(locale: Locale = "en"): Promise<Entry[]> {
+export async function getPublishedEntries(): Promise<Entry[]> {
   const entries = await getCollection("entries");
   const routes = new Map<string, string>();
 
@@ -53,14 +53,14 @@ export async function getPublishedEntries(locale: Locale = "en"): Promise<Entry[
 
   const today = todayInShanghai();
   return entries
-    .filter(({ data }) => data.locale === locale && !data.draft && data.publishedAt <= today)
+    .filter(({ data }) => !data.draft && data.publishedAt <= today)
     .sort((a, b) => {
       const byDate = b.data.publishedAt.localeCompare(a.data.publishedAt);
       return byDate || a.id.localeCompare(b.id);
     });
 }
 
-export function getSectionGroups(section: SectionId, entries: Entry[], locale: Locale): NavGroup[] {
+export function getSectionGroups(section: SectionId, entries: Entry[]): NavGroup[] {
   const groups = new Map<string, Entry[]>();
 
   for (const entry of entries) {
@@ -68,7 +68,7 @@ export function getSectionGroups(section: SectionId, entries: Entry[], locale: L
     const label = section === "weekly"
       ? entry.data.publishedAt.slice(0, 4)
       : section === "life"
-        ? entry.data.topic ?? ui[locale].notes
+        ? entry.data.topic ?? ui.notes
         : "";
     const group = groups.get(label) ?? [];
     group.push(entry);
