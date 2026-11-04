@@ -1,0 +1,198 @@
+---
+import "@fontsource/ibm-plex-mono/latin-400.css";
+import "@fontsource/ibm-plex-mono/latin-500.css";
+import "@fontsource/ibm-plex-mono/latin-600.css";
+import SiteLayout from "@/layouts/SiteLayout.astro";
+import { getPublishedEntries } from "@/lib/content";
+import { url } from "@/lib/paths";
+
+const entries = await getPublishedEntries();
+const headings = [
+  { depth: 2, slug: "voice-and-rhythm", text: "Voice and rhythm" },
+  { depth: 2, slug: "reading-at-length", text: "Reading at length" },
+  { depth: 2, slug: "technical-language", text: "Technical language" },
+  { depth: 2, slug: "code-and-detail", text: "Code and detail" },
+  { depth: 2, slug: "compare-the-typefaces", text: "Compare the typefaces" },
+];
+---
+
+<SiteLayout
+  title="IBM Plex Mono Type Specimen — Zephyr"
+  description="A long-form specimen for IBM Plex Mono, including display sizes, reading text, lists, quotations, and code."
+  entries={entries}
+  headings={headings}
+  noindex
+>
+  <div class="type-specimen article-prose article-prose--ibm-plex-mono" data-article-body>
+    <header class="type-specimen__hero">
+      <p class="eyebrow">TYPE SPECIMEN / MONOSPACE</p>
+      <h1 class="type-specimen__title">IBM Plex<br />Mono</h1>
+      <p class="type-specimen__lede">
+        A monospaced typeface with a measured, technical voice. This page uses IBM Plex Mono
+        for every visible heading, paragraph, label, quotation, and code sample so the
+        rhythm can be judged in a real reading layout.
+      </p>
+      <p class="type-specimen__glyphs" aria-label="IBM Plex Mono glyph sample">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />
+        abcdefghijklmnopqrstuvwxyz<br />
+        0123456789 &amp; @ # % ? ! / \ ( ) [ ] { }
+      </p>
+      <div class="type-specimen__meta">
+        <span>IBM Plex Mono</span>
+        <span>400 / 500 / 600</span>
+        <span>Latin subset</span>
+        <span>Self-hosted</span>
+      </div>
+    </header>
+
+    <section>
+      <h2 id="voice-and-rhythm">A monospaced voice with a human edge</h2>
+      <p>
+        IBM Plex Mono belongs to the wider IBM Plex family, a system designed to connect
+        brand, engineering, and editorial communication. Its monospaced construction gives
+        every glyph the same horizontal advance, so letters, numbers, punctuation, and code
+        align into a steady grid. That mechanical consistency is useful for scanning
+        technical information, but it does not make the typeface cold. The curves remain
+        open, the terminals have subtle modulation, and the overall texture feels more
+        written than engineered.
+      </p>
+      <p>
+        The result is a typeface that can move between documentation, interface labels,
+        code, and long-form explanation without changing its personality. A proportional
+        sans-serif compresses and expands according to the shape of each letter. A
+        monospaced face keeps the same beat. IBM Plex Mono makes that beat visible enough
+        to establish a technical atmosphere while leaving enough softness for sustained
+        reading.
+      </p>
+      <p>
+        This specimen is intentionally dense. Short samples reveal the outline of a
+        typeface; longer passages reveal its rhythm. Reading several paragraphs at once
+        shows how the eye moves across repeated widths, how much white space accumulates
+        between words, and whether the line endings create a calm texture or a rigid wall
+        of characters.
+      </p>
+    </section>
+
+    <section>
+      <h2 id="reading-at-length">Reading at length</h2>
+      <p>
+        A monospaced book face is uncommon for a reason. Equal widths remove the natural
+        compression of letters such as i, l, and t, while giving wide characters such as m
+        and W the same footprint. That tradeoff creates clarity and consistency, but it
+        also increases the physical width of every line. A paragraph in IBM Plex Mono
+        occupies more horizontal space than the same paragraph in Manrope, which means
+        fewer words fit inside a fixed column and the reader encounters more frequent line
+        breaks.
+      </p>
+      <p>
+        Those extra line breaks can be beneficial. When the text describes code,
+        architecture, interfaces, versions, commands, measurements, or systems, the
+        regularity reinforces the subject. The page begins to resemble a carefully
+        maintained technical document. The eye can jump from one line to the next without
+        being distracted by changing letter widths. The tradeoff is speed. Long prose in a
+        monospaced face asks for a slower reading pace, and that pace can be exactly what a
+        technical article needs.
+      </p>
+      <blockquote>
+        <p>
+          The typeface does not merely carry the content. Its rhythm tells the reader what
+          kind of content to expect: deliberate, structured, inspectable, and precise.
+        </p>
+      </blockquote>
+      <p>
+        At this width, IBM Plex Mono reads as a text face rather than a terminal font. The
+        lowercase forms are generous, the punctuation remains visible, and the capitals do
+        not overwhelm the line. The italic style is available in the full family, although
+        this specimen keeps the primary reading surface upright so that weight and spacing
+        can be compared without additional variation.
+      </p>
+    </section>
+
+    <section>
+      <h2 id="technical-language">Technical language and interface detail</h2>
+      <p>
+        The typeface becomes especially convincing when it handles mixed content. A line
+        can move from ordinary explanation into a command, a version number, a file path,
+        or an API name without changing its fundamental texture. This continuity is useful
+        in documentation because the reader does not have to treat code as a separate
+        visual world. Prose and technical notation share the same grid while still being
+        distinguished by weight, surface, and spacing.
+      </p>
+      <h3>Clear structure</h3>
+      <p>
+        Headings in IBM Plex Mono feel like chapter markers in a technical manual. The
+        letters are evenly spaced, the silhouette is compact, and the line can carry a
+        strong label without requiring excessive weight. A medium weight establishes
+        hierarchy while retaining the precision of the regular face.
+      </p>
+      <h3>Deliberate spacing</h3>
+      <p>
+        Monospaced text benefits from generous line height. The fixed width already creates
+        strong horizontal rhythm, so the vertical interval should give each line enough air
+        to prevent the paragraph from becoming a dense block. This page keeps the site's
+        established reading size and line height, allowing the typeface itself to reveal how
+        much additional width it introduces.
+      </p>
+      <ul>
+        <li>Regular weight suits long explanations, notes, and reference material.</li>
+        <li>Medium weight works well for headings, labels, navigation, and emphasis.</li>
+        <li>The fixed grid supports code, numeric tables, paths, and repeated structures.</li>
+        <li>Open counters keep small text legible without making the face look playful.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 id="code-and-detail">Code and detail</h2>
+      <p>
+        A monospaced face is most familiar in code, and IBM Plex Mono carries that
+        association without reducing the surrounding page to a terminal. The sample below
+        shows how the same family can preserve alignment, distinguish punctuation, and
+        remain comfortable beside regular prose.
+      </p>
+      <pre><code>{`const specimen = {
+  family: "IBM Plex Mono",
+  spacing: "monospaced",
+  weights: [400, 500, 600],
+  purpose: "technical reading",
+};
+
+function renderTypeface(font) {
+  return font
+    .split(" ")
+    .map((word) => word.toUpperCase())
+    .join(" / ");
+}`}</code></pre>
+      <p>
+        Compare the block above with the adjacent paragraphs. The code sample is not
+        switching to a different family; it inherits the same IBM Plex Mono voice. What
+        changes is the density of the line and the visual purpose of the content. The code
+        grid and the prose grid belong to one system.
+      </p>
+    </section>
+
+    <section>
+      <h2 id="compare-the-typefaces">Compare the typefaces</h2>
+      <p>
+        The most useful comparison is not a single word set at a large size. Read the same
+        kind of material across all three pages and observe line endings, word spacing, and
+        how quickly the eye returns to the start of the next line.
+      </p>
+      <ol>
+        <li><a href={url("/weekly/2026-w44/")}>Nov 1: Manrope</a> shows a proportional, compact reading rhythm.</li>
+        <li><a href={url("/weekly/2026-w43/")}>Oct 25: JetBrains Mono</a> shows a sharper coding-oriented monospace texture.</li>
+        <li>This page: IBM Plex Mono shows a softer, editorial approach to monospaced reading.</li>
+      </ol>
+      <p>
+        Manrope changes width from letter to letter and produces the most conventional prose
+        rhythm. JetBrains Mono emphasizes technical precision, squared forms, and unmistakable
+        character separation. IBM Plex Mono sits between those poles: it keeps the fixed grid
+        of code while preserving a human, publication-oriented finish.
+      </p>
+      <p>
+        The difference becomes clear at paragraph scale. IBM Plex Mono is wider and more
+        regular than Manrope, but rounder and more editorial than JetBrains Mono. It is a
+        strong option when the site should feel technical without looking like an IDE.
+      </p>
+    </section>
+  </div>
+</SiteLayout>

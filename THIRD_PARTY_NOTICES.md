@@ -35,3 +35,7 @@ Self-hosted through @fontsource-variable/jetbrains-mono. Its original SIL Open F
 
 Self-hosted through @fontsource-variable/manrope. Its original SIL Open Font License is preserved in public/licenses/Manrope-OFL.txt.
 
+## IBM Plex Mono
+
+Self-hosted through @fontsource/ibm-plex-mono. Its original SIL Open Font License is preserved in public/licenses/IBM-Plex-Mono-OFL.txt.
+

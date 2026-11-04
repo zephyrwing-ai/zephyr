@@ -30,6 +30,10 @@ Keep drafts with `draft: true`. Publication dates use the Shanghai calendar, and
 
 The Contact link uses the visitor's configured email application to compose a message. Reading-focus regression tests run with `node --experimental-strip-types --test tests/reading-position.test.mjs`.
 
+## Type specimens
+
+- `/type-specimens/ibm-plex-mono/`: Long-form IBM Plex Mono sample with display type, reading text, lists, quotations, and code.
+
 ## Deploy
 
 Set `SITE_URL` to the production origin when building, then deploy `dist/` to a static host.
