@@ -1,11 +1,7 @@
 ---
 import { render } from "astro:content";
-import "@fontsource-variable/manrope";
 import "@fontsource-variable/dm-sans/wght.css";
-import "@fontsource-variable/geist/wght.css";
-import "@fontsource/ibm-plex-mono/latin-400.css";
 import "@fontsource/ibm-plex-mono/latin-500.css";
-import "@fontsource/ibm-plex-mono/latin-600.css";
 import SiteLayout from "@/layouts/SiteLayout.astro";
 import { getSection } from "@/config/site";
 import { getPublishedEntries, type Entry } from "@/lib/content";
@@ -17,27 +13,12 @@ interface Props {
 const { entry } = Astro.props;
 const entries = await getPublishedEntries();
 const currentSection = getSection(entry.data.section);
-const typefaceClassByValue = {
-  manrope: "article-prose--manrope",
-  "ibm-plex-mono": "article-prose--ibm-plex-mono",
-  "dm-sans": "article-prose--dm-sans",
-  geist: "article-prose--geist",
-} as const;
-const typefaceClass =
-  entry.data.typeface === "jetbrains-mono"
-    ? undefined
-    : typefaceClassByValue[entry.data.typeface];
 const { Content, headings } = await render(entry);
 ---
 
 <SiteLayout title={`${entry.data.title} — Zephyr`} description={entry.data.description} entries={entries} currentSection={currentSection} headings={headings}>
-  <article
-    class:list={["article-prose", typefaceClass]}
-    data-article-body
-  >
-    <h1 class:list={{ "sr-only": !entry.data.showTitle, "article-title": entry.data.showTitle }}>
-      {entry.data.title}
-    </h1>
+  <article class="article-prose" data-article-body>
+    <h1 class="article-title">{entry.data.title}</h1>
     <Content />
   </article>
 </SiteLayout>

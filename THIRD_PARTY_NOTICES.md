@@ -31,10 +31,6 @@ SOFTWARE.
 
 Self-hosted through @fontsource-variable/jetbrains-mono. Its original SIL Open Font License is preserved in public/licenses/JetBrains-Mono-OFL.txt.
 
-## Manrope
-
-Self-hosted through @fontsource-variable/manrope. Its original SIL Open Font License is preserved in public/licenses/Manrope-OFL.txt.
-
 ## IBM Plex Mono
 
 Self-hosted through @fontsource/ibm-plex-mono. Its original SIL Open Font License is preserved in public/licenses/IBM-Plex-Mono-OFL.txt.
@@ -42,8 +38,4 @@ Self-hosted through @fontsource/ibm-plex-mono. Its original SIL Open Font Licens
 ## DM Sans
 
 Self-hosted through @fontsource-variable/dm-sans. Its original SIL Open Font License is preserved in public/licenses/DM-Sans-OFL.txt.
-
-## Geist
-
-Self-hosted through @fontsource-variable/geist. Its original SIL Open Font License is preserved in public/licenses/Geist-OFL.txt.
 

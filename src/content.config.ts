@@ -3,8 +3,6 @@ import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 import { sections } from "./config/site";
 
-const entryTypefaces = ["jetbrains-mono", "manrope", "ibm-plex-mono", "dm-sans", "geist"] as const;
-
 const calendarDate = z
   .string()
   .regex(/^\d{4}-\d{2}-\d{2}$/, "Use the date format YYYY-MM-DD.")
@@ -23,8 +21,6 @@ const entries = defineCollection({
       publishedAt: calendarDate,
       updatedAt: calendarDate.optional(),
       topic: z.string().trim().min(1).optional(),
-      typeface: z.enum(entryTypefaces).default("jetbrains-mono"),
-      showTitle: z.boolean().default(false),
       draft: z.boolean().default(false),
       featured: z.boolean().default(false),
       cover: z.object({

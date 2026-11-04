@@ -15,9 +15,8 @@ interface Props {
   entries: Entry[];
   currentSection?: Section;
   headings?: MarkdownHeading[];
-  noindex?: boolean;
 }
-const { title = site.title, description = site.description, entries, currentSection, headings = [], noindex = false } = Astro.props;
+const { title = site.title, description = site.description, entries, currentSection, headings = [] } = Astro.props;
 const currentPath = Astro.url.pathname;
 const groups = currentSection ? getSectionGroups(currentSection.id, entries) : [];
 const socialLinks = [
@@ -35,7 +34,7 @@ const canonical = Astro.site ? new URL(currentPath, Astro.site).href : undefined
     <meta name="theme-color" content="#ffffff" />
     <meta name="color-scheme" content="light" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="robots" content={!Astro.site || noindex ? "noindex, follow" : "index, follow"} />
+    <meta name="robots" content={Astro.site ? "index, follow" : "noindex, follow"} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />

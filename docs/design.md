@@ -11,8 +11,7 @@ Visual design
 - Header actions: X, GitHub, and Contact share one compact text treatment at the right edge of the header.
 - Hierarchy: Type, gray values, alignment, and space distinguish content from navigation.
 - Typography: Self-hosted JetBrains Mono and comfortable line spacing establish a consistent reading rhythm.
-- Article typography: Each Markdown entry selects its reading typeface from JetBrains Mono, Manrope, IBM Plex Mono, DM Sans, or Geist.
-- Type specimens: Dedicated specimen pages compare display, reading, interface, and code typography with long-form content.
+- Article typography: Every article title uses IBM Plex Mono at weight 500, and every article body uses DM Sans at weight 400 and 16px.
 - Images: Project covers provide descriptive alt text and explicit dimensions.
 
 Navigation and reading

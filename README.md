@@ -20,7 +20,7 @@ Open `http://127.0.0.1:4321/`. Run `npm run build` to check the project and gene
 - `src/styles/global.css`: colors, layout, and typography.
 - `public/`: images and icons.
 
-Each article declares `section`, `title`, `description`, and `publishedAt`. Its filename supplies the URL slug. Use `topic` for Life groups, `featured` for homepage selections, and `cover` for project images. The `typeface` field accepts `jetbrains-mono`, `manrope`, `ibm-plex-mono`, `dm-sans`, and `geist`; `showTitle: true` renders the article title as a visible display heading.
+Each article declares `section`, `title`, `description`, and `publishedAt`. Its filename supplies the URL slug. Use `topic` for Life groups, `featured` for homepage selections, and `cover` for project images. Article titles use IBM Plex Mono at weight 500, and article bodies use DM Sans at weight 400 and 16px.
 
 Routes use the root path, such as `/weekly/2026-w43/`. The site publishes in English, and each Markdown article has one canonical route.
 
@@ -29,12 +29,6 @@ Weekly entries are grouped by publication year. Each year is collapsible, and th
 Keep drafts with `draft: true`. Publication dates use the Shanghai calendar, and scheduled entries appear after a build on or after their publication date.
 
 The Contact link uses the visitor's configured email application to compose a message. Reading-focus regression tests run with `node --experimental-strip-types --test tests/reading-position.test.mjs`.
-
-## Type specimens
-
-- `/type-specimens/ibm-plex-mono/`: Long-form IBM Plex Mono sample with display type, reading text, lists, quotations, and code.
-- `/type-specimens/dm-sans/`: Long-form DM Sans article with display type, reading text, lists, and quotations.
-- `/type-specimens/geist/`: Long-form Geist article using the reference 17px body size and 20px paragraph margins.
 
 ## Deploy
 
