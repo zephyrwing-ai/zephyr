@@ -33,6 +33,7 @@ The Contact link uses the visitor's configured email application to compose a me
 ## Type specimens
 
 - `/type-specimens/ibm-plex-mono/`: Long-form IBM Plex Mono sample with display type, reading text, lists, quotations, and code.
+- `/type-specimens/dm-sans/`: Long-form DM Sans article with display type, reading text, lists, and quotations.
 
 ## Deploy
 

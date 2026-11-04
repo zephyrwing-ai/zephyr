@@ -39,3 +39,7 @@ Self-hosted through @fontsource-variable/manrope. Its original SIL Open Font Lic
 
 Self-hosted through @fontsource/ibm-plex-mono. Its original SIL Open Font License is preserved in public/licenses/IBM-Plex-Mono-OFL.txt.
 
+## DM Sans
+
+Self-hosted through @fontsource-variable/dm-sans. Its original SIL Open Font License is preserved in public/licenses/DM-Sans-OFL.txt.
+

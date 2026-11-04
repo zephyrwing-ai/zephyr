@@ -156,6 +156,8 @@
 .article-prose--manrope { font-family: "Manrope Variable", "Helvetica Neue", sans-serif; }
 .article-prose--manrope :where(code, pre) { font-family: "JetBrains Mono Variable", "SFMono-Regular", Consolas, monospace; }
 .article-prose--ibm-plex-mono { font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace; }
+.article-prose--dm-sans { font-family: "DM Sans Variable", "Helvetica Neue", sans-serif; }
+.article-prose--dm-sans :where(code, pre) { font-family: "JetBrains Mono Variable", "SFMono-Regular", Consolas, monospace; }
 .article-prose > :first-child { margin-top: 0; }
 .article-prose h2 { color: var(--heading); font-size: 22px; font-weight: 500; letter-spacing: -.4px; line-height: 1.38; margin: 24px 0 8px; }
 .article-prose h3 { color: var(--heading); font-size: 17px; font-weight: 500; line-height: 1.48; margin: 16px 0 6px; }
@@ -180,6 +182,8 @@
 .type-specimen { padding-top: 4px; }
 .type-specimen__hero { padding-bottom: 38px; border-bottom: 1px solid var(--border); }
 .type-specimen__title { margin: 22px 0 24px; color: var(--heading); font-size: clamp(54px, 8vw, 88px); font-weight: 500; letter-spacing: -.075em; line-height: .96; }
+.type-specimen__title-line,
+.type-specimen__glyph-line { display: block; }
 .type-specimen__lede { max-width: 650px; margin: 0; color: var(--quiet); font-size: 19px; line-height: 1.62; }
 .type-specimen__glyphs { margin: 34px 0 0; color: var(--heading); font-size: clamp(18px, 2.8vw, 28px); line-height: 1.5; overflow-wrap: anywhere; }
 .type-specimen__meta { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 26px; padding-top: 14px; border-top: 1px solid var(--border); color: var(--subtle); font-size: 10px; letter-spacing: .3px; text-transform: uppercase; }

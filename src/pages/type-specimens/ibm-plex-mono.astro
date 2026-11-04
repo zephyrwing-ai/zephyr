@@ -2,7 +2,7 @@
 import "@fontsource/ibm-plex-mono/latin-400.css";
 import "@fontsource/ibm-plex-mono/latin-500.css";
 import "@fontsource/ibm-plex-mono/latin-600.css";
-import SiteLayout from "@/layouts/SiteLayout.astro";
+import TypeSpecimen from "@/components/TypeSpecimen.astro";
 import { getPublishedEntries } from "@/lib/content";
 import { url } from "@/lib/paths";
 
@@ -16,35 +16,22 @@ const headings = [
 ];
 ---
 
-<SiteLayout
-  title="IBM Plex Mono Type Specimen — Zephyr"
+<TypeSpecimen
+  pageTitle="IBM Plex Mono Type Specimen — Zephyr"
   description="A long-form specimen for IBM Plex Mono, including display sizes, reading text, lists, quotations, and code."
+  eyebrow="TYPE SPECIMEN / MONOSPACE"
+  titleLines={["IBM Plex", "Mono"]}
+  lede="A monospaced typeface with a measured, technical voice. This page uses IBM Plex Mono for every visible heading, paragraph, label, quotation, and code sample so the rhythm can be judged in a real reading layout."
+  glyphLines={[
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    "abcdefghijklmnopqrstuvwxyz",
+    "0123456789 & @ # % ? ! / \\ ( ) [ ] { }",
+  ]}
+  meta={["IBM Plex Mono", "400 / 500 / 600", "Latin subset", "Self-hosted"]}
+  fontClass="article-prose--ibm-plex-mono"
   entries={entries}
   headings={headings}
-  noindex
 >
-  <div class="type-specimen article-prose article-prose--ibm-plex-mono" data-article-body>
-    <header class="type-specimen__hero">
-      <p class="eyebrow">TYPE SPECIMEN / MONOSPACE</p>
-      <h1 class="type-specimen__title">IBM Plex<br />Mono</h1>
-      <p class="type-specimen__lede">
-        A monospaced typeface with a measured, technical voice. This page uses IBM Plex Mono
-        for every visible heading, paragraph, label, quotation, and code sample so the
-        rhythm can be judged in a real reading layout.
-      </p>
-      <p class="type-specimen__glyphs" aria-label="IBM Plex Mono glyph sample">
-        ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />
-        abcdefghijklmnopqrstuvwxyz<br />
-        0123456789 &amp; @ # % ? ! / \ ( ) [ ] { }
-      </p>
-      <div class="type-specimen__meta">
-        <span>IBM Plex Mono</span>
-        <span>400 / 500 / 600</span>
-        <span>Latin subset</span>
-        <span>Self-hosted</span>
-      </div>
-    </header>
-
     <section>
       <h2 id="voice-and-rhythm">A monospaced voice with a human edge</h2>
       <p>
@@ -180,6 +167,7 @@ function renderTypeface(font) {
       <ol>
         <li><a href={url("/weekly/2026-w44/")}>Nov 1: Manrope</a> shows a proportional, compact reading rhythm.</li>
         <li><a href={url("/weekly/2026-w43/")}>Oct 25: JetBrains Mono</a> shows a sharper coding-oriented monospace texture.</li>
+        <li><a href={url("/type-specimens/dm-sans/")}>DM Sans specimen</a> shows a proportional humanist voice on the same reading surface.</li>
         <li>This page: IBM Plex Mono shows a softer, editorial approach to monospaced reading.</li>
       </ol>
       <p>
@@ -194,5 +182,4 @@ function renderTypeface(font) {
         strong option when the site should feel technical without looking like an IDE.
       </p>
     </section>
-  </div>
-</SiteLayout>
+</TypeSpecimen>

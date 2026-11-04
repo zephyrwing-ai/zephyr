@@ -1,0 +1,186 @@
+---
+import "@fontsource-variable/dm-sans/wght.css";
+import TypeSpecimen from "@/components/TypeSpecimen.astro";
+import { getPublishedEntries } from "@/lib/content";
+import { url } from "@/lib/paths";
+
+const entries = await getPublishedEntries();
+const headings = [
+  { depth: 2, slug: "attention-is-the-first-material", text: "Attention is the first material" },
+  { depth: 2, slug: "the-space-between-actions", text: "The space between actions" },
+  { depth: 2, slug: "a-humanist-sans-in-a-technical-system", text: "A humanist sans in a technical system" },
+  { depth: 2, slug: "designing-for-the-pause", text: "Designing for the pause" },
+  { depth: 2, slug: "a-practical-standard", text: "A practical standard" },
+  { depth: 2, slug: "compare-the-typefaces", text: "Compare the typefaces" },
+];
+---
+
+<TypeSpecimen
+  pageTitle="A Quieter Kind of Interface — DM Sans Essay"
+  description="An essay on attention, pace, and interface design, set in DM Sans with display and long-form reading samples."
+  eyebrow="ESSAY / HUMANIST SANS"
+  titleLines={["A Quieter Kind", "of Interface"]}
+  lede="A humanist sans can make a technical system feel calmer without removing its precision. This essay uses DM Sans for every heading, paragraph, list, and label so its reading rhythm can be judged at full length."
+  glyphLines={[
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    "abcdefghijklmnopqrstuvwxyz",
+    "0123456789 & @ # % ? ! / ( ) [ ]",
+  ]}
+  meta={["DM Sans", "Variable 100-1000", "Latin subset", "Self-hosted"]}
+  fontClass="article-prose--dm-sans"
+  entries={entries}
+  headings={headings}
+>
+  <section>
+    <h2 id="attention-is-the-first-material">Attention is the first material</h2>
+    <p>
+      Every interface asks for attention before it can offer value. The request may be
+      obvious, such as a large button, or subtle, such as a line of text that appears after
+      a moment of inactivity. In both cases, the product is spending a resource the user
+      cannot recover. Good interface design begins by deciding what deserves that resource
+      and what should remain quiet.
+    </p>
+    <p>
+      This is why visual restraint is not the same as emptiness. A calm interface still has
+      hierarchy, contrast, and movement. It simply removes competition between elements that
+      are trying to speak at the same time. The strongest interface often feels inevitable:
+      the next action is visible, the current state is clear, and nothing else demands a
+      decision.
+    </p>
+    <p>
+      Typography plays a central role in that balance. A page can contain very little color
+      and still feel loud if the type is too heavy, the line length is uncontrolled, or every
+      label competes for attention. A typeface with an even rhythm helps the eye understand
+      where to begin, how to continue, and when to stop.
+    </p>
+  </section>
+
+  <section>
+    <h2 id="the-space-between-actions">The space between actions</h2>
+    <p>
+      Software is often described as a sequence of actions: open a project, create a file,
+      run a command, publish a result. The experience also depends on the intervals between
+      those actions. Loading states, confirmation messages, transitions, and empty screens
+      are not interruptions around the work. They are part of the work.
+    </p>
+    <p>
+      A quiet interface treats those intervals as designed space. It tells the user what is
+      happening without adding unnecessary movement. It gives feedback without turning every
+      background process into a celebration. It allows a completed action to feel complete,
+      then gets out of the way.
+    </p>
+    <blockquote>
+      <p>
+        The best interface rhythm is not measured by how many things happen at once. It is
+        measured by how clearly each moment leads to the next.
+      </p>
+    </blockquote>
+    <p>
+      This rhythm is especially important in tools for creative and technical work. A person
+      writing, designing, or debugging needs a stable surface. The interface should provide
+      confidence that the work is saved, the data is current, and the next step is available.
+      It should not repeatedly ask for attention after those conditions have been met.
+    </p>
+  </section>
+
+  <section>
+    <h2 id="a-humanist-sans-in-a-technical-system">A humanist sans in a technical system</h2>
+    <p>
+      DM Sans brings warmth to a system without making it informal. Its proportions are
+      compact, its counters are open, and its shapes remain clear at small sizes. The family
+      moves comfortably between headings, interface labels, and long paragraphs. That range
+      lets a product keep one visual voice across documentation and functional screens.
+    </p>
+    <p>
+      A monospaced face creates a strong technical signal because every character occupies
+      the same width. DM Sans gives up that fixed grid and restores the natural compression
+      of letters such as i, l, and t. The result is a more familiar reading rhythm: words hold
+      their shape, lines fit more language, and the eye can move quickly across a paragraph.
+    </p>
+    <p>
+      That familiarity is useful when the interface contains complex information. The type
+      does not have to announce the technical nature of the product on every line. The
+      structure, labels, values, and interactions can carry that responsibility. Typography
+      creates the tone around them.
+    </p>
+    <h3>Clear at small sizes</h3>
+    <p>
+      Interface text often lives between twelve and sixteen pixels. At that scale, the most
+      important qualities are the height of lowercase letters, the openness of counters, and
+      the amount of space inside punctuation. DM Sans keeps those details legible without
+      making every word feel large.
+    </p>
+    <h3>Flexible across weights</h3>
+    <p>
+      The variable version covers a wide weight range, so hierarchy can change while the
+      underlying letterforms stay consistent. A medium heading and a bold label feel related
+      because they share the same skeleton. The system can become more assertive without
+      changing its identity.
+    </p>
+  </section>
+
+  <section>
+    <h2 id="designing-for-the-pause">Designing for the pause</h2>
+    <p>
+      There is a practical test for interface calm: remove the labels and imagine the screen
+      as a map of emphasis. Which area attracts the eye first, second, and third? If every
+      region has similar weight, the user receives no guidance. If one region dominates
+      without matching the task, the interface points in the wrong direction.
+    </p>
+    <p>
+      A long article makes this test visible. The heading should be distinct, the first
+      paragraph should be easy to enter, and the body should settle into a repeatable line
+      length. Lists should interrupt the rhythm only when they need to. A quotation should
+      create a pause, not a second competing layout.
+    </p>
+    <p>
+      The same principle applies to product screens. A settings page can be dense, but the
+      hierarchy should remain stable. A dashboard can contain many values, but only the
+      current decision needs the strongest emphasis. An editor can expose many tools, but
+      the writing surface should remain the clearest destination.
+    </p>
+    <ul>
+      <li>Use weight to separate levels of information, not to decorate each level.</li>
+      <li>Keep body text at a comfortable measure and reserve wider lines for short labels.</li>
+      <li>Let whitespace establish groups before borders and backgrounds do the work.</li>
+      <li>Use motion to explain a change in state and then return attention to the content.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 id="a-practical-standard">A practical standard</h2>
+    <p>
+      A restrained interface is easier to maintain because it has fewer exceptions. Shared
+      type styles, spacing tokens, and interaction states create a system that can grow
+      without becoming visually noisy. New components inherit the same pace instead of
+      introducing another local language.
+    </p>
+    <p>
+      This standard also improves performance. A small set of self-hosted font files avoids
+      requests to third-party services and gives the product control over loading behavior.
+      A page can ask the browser for only the weight and character range it needs, while the
+      design system keeps a stable typographic contract.
+    </p>
+    <p>
+      Quiet design does not aim to make every product look the same. It aims to make the
+      relationship between content and interface easier to understand. A typeface like
+      DM Sans supports that goal by giving technical work a human pace without weakening its
+      structure.
+    </p>
+  </section>
+
+  <section>
+    <h2 id="compare-the-typefaces">Compare the typefaces</h2>
+    <p>
+      Read this page against the other specimens at the same browser width. Notice the line
+      endings first, then compare the weight of the headings, the spacing between words, and
+      the amount of visual noise created by a full paragraph.
+    </p>
+    <ol>
+      <li><a href={url("/type-specimens/ibm-plex-mono/")}>IBM Plex Mono</a> keeps the fixed grid and adds a technical, editorial tone.</li>
+      <li><a href={url("/weekly/2026-w44/")}>Manrope</a> provides a compact geometric rhythm for long-form reading.</li>
+      <li><a href={url("/weekly/2026-w43/")}>JetBrains Mono</a> emphasizes code-oriented precision and character separation.</li>
+      <li>This page: DM Sans creates a softer humanist rhythm while retaining a clear technical hierarchy.</li>
+    </ol>
+  </section>
+</TypeSpecimen>
