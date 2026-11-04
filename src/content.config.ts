@@ -3,7 +3,7 @@ import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 import { sections } from "./config/site";
 
-const entryTypefaces = ["jetbrains-mono", "manrope"] as const;
+const entryTypefaces = ["jetbrains-mono", "manrope", "ibm-plex-mono", "dm-sans", "geist"] as const;
 
 const calendarDate = z
   .string()
@@ -24,6 +24,7 @@ const entries = defineCollection({
       updatedAt: calendarDate.optional(),
       topic: z.string().trim().min(1).optional(),
       typeface: z.enum(entryTypefaces).default("jetbrains-mono"),
+      showTitle: z.boolean().default(false),
       draft: z.boolean().default(false),
       featured: z.boolean().default(false),
       cover: z.object({

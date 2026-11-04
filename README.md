@@ -20,7 +20,7 @@ Open `http://127.0.0.1:4321/`. Run `npm run build` to check the project and gene
 - `src/styles/global.css`: colors, layout, and typography.
 - `public/`: images and icons.
 
-Each article declares `section`, `title`, `description`, and `publishedAt`. Its filename supplies the URL slug. Use `topic` for Life groups, `typeface: manrope` for Manrope article text, `featured` for homepage selections, and `cover` for project images.
+Each article declares `section`, `title`, `description`, and `publishedAt`. Its filename supplies the URL slug. Use `topic` for Life groups, `featured` for homepage selections, and `cover` for project images. The `typeface` field accepts `jetbrains-mono`, `manrope`, `ibm-plex-mono`, `dm-sans`, and `geist`; `showTitle: true` renders the article title as a visible display heading.
 
 Routes use the root path, such as `/weekly/2026-w43/`. The site publishes in English, and each Markdown article has one canonical route.
 
