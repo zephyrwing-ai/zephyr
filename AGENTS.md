@@ -43,3 +43,14 @@ npm run build
 
 Agent-generated changes follow the same branch, pull request, and CI path as human changes. Each change description states the problem, the implementation, the verification evidence, and any remaining external dependency.
 
+## Issue Handoff
+
+Issue-driven work uses a durable issue as the task contract:
+
+1. Create the issue with a goal, current behavior, expected behavior, acceptance criteria, reproduction evidence, and scope constraints.
+2. Add the `agent:ready` label in a separate `gh issue edit` call after the issue body is complete.
+3. Let the `issue-fix` workflow create a draft pull request against `main`.
+4. Review the draft pull request, run the rendered site when the change affects the interface, and mark the pull request ready after acceptance.
+
+The `agent:ready` label is the authorization boundary. Trusted local agents may add it directly after creating a complete issue. Maintainers add it to community-created issues after confirming the task.
+
