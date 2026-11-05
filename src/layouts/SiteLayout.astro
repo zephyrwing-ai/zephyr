@@ -40,7 +40,8 @@ const canonical = Astro.site ? new URL(currentPath, Astro.site).href : undefined
     <meta property="og:type" content="website" />
     <meta property="og:locale" content={site.ogLocale} />
     {canonical && <><link rel="canonical" href={canonical} /><meta property="og:url" content={canonical} /></>}
-    <link rel="icon" type="image/svg+xml" href={url("/favicon.svg")} />
+    <link rel="icon" type="image/png" sizes="32x32" href={url("/favicon-32.png")} />
+    <link rel="apple-touch-icon" sizes="180x180" href={url("/apple-touch-icon.png")} />
     <title>{title}</title>
   </head>
   <body data-elastic-root>
