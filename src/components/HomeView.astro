@@ -2,8 +2,7 @@
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import SiteLayout from "@/layouts/SiteLayout.astro";
 import EntryList from "@/components/EntryList.astro";
-import StickyMediaBand from "@/components/StickyMediaBand.astro";
-import { site, ui } from "@/config/site";
+import { ui } from "@/config/site";
 import { getPublishedEntries, getEntryHref } from "@/lib/content";
 import { url } from "@/lib/paths";
 
@@ -22,12 +21,6 @@ const featuredEntry = entries.find((entry) => entry.data.section === "weekly" &&
       <h1>{copy.heroLead}<br /><span>{copy.heroTail}</span></h1>
       <a href={featuredEntry ? getEntryHref(featuredEntry) : url("/weekly/")} class="text-link hero-link">{copy.readLatest} <ArrowRight size={16} aria-hidden="true" /></a>
     </section>
-    <StickyMediaBand
-      id="field-notes"
-      eyebrow="NOTES / IDEAS / WORK"
-      titleLines={["FIELD", "NOTES"]}
-      imageUrl={site.avatar.src}
-    />
     <section class="home-section">
       <div class="section-heading"><h2 id="recent-notes">{copy.recentNotes}</h2><a href={url("/weekly/")} class="quiet-link">{copy.browseWeekly} <ArrowUpRight size={14} aria-hidden="true" /></a></div>
       <EntryList entries={latest} />
