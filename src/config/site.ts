@@ -40,6 +40,7 @@ export const site = {
   github: "https://github.com/zephyrwing-ai",
   x: "https://x.com/zhngzhmng28226",
   email: "zephyr200412@gmail.com",
+  resume: "/resume/zephyr-resume.pdf",
 } as const;
 
 export const ui = {

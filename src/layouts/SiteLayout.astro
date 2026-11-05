@@ -68,7 +68,7 @@ const canonical = Astro.site ? new URL(currentPath, Astro.site).href : undefined
           {socialLinks.map((link) => (
             <a class="social-link" href={link.href} target="_blank" rel="noreferrer" aria-label={`${link.name} (${ui.opensNewTab})`}>{link.name}</a>
           ))}
-          <a class="contact-link" href={`mailto:${site.email}`}>{ui.contact}</a>
+          <a class="contact-link" href={url(site.resume)} target="_blank" rel="noopener noreferrer" aria-label={`${ui.contact} (${ui.opensNewTab})`}>{ui.contact}</a>
           <MobileMenu groups={groups} currentPath={currentPath} currentSection={currentSection} client:load />
         </div>
       </div>
